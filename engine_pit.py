@@ -3,9 +3,10 @@
 计算 t 时刻只用 <= t 的数据; 未来数据仅供回顾校准. 冷启动: 历史观测 < MIN_OBS 丢弃.
 取代 engine.py(全样本含前视). 数据: SERIES_PATH (NDQ_DEV 已补全至1990)
 """
-import pickle, numpy as np, pandas as pd
-SERIES_PATH='/home/claude/calc/series.pkl'
-MARGIN_PATH='/mnt/project/marginstatistics.xlsx'
+import pickle, os, numpy as np, pandas as pd
+_BASE = os.path.dirname(os.path.abspath(__file__))
+SERIES_PATH = os.path.join(_BASE, 'calc', 'series.pkl')
+MARGIN_PATH = os.path.join(_BASE, 'marginstatistics.xlsx')
 WEIGHTS={'SOX_DEV':14,'NDQ_DEV':12,'CONC':8,'CONC_PREMIUM':5,'BREADTH':11,'CAPE':10,
          'MARGIN_GDP':8,'VIX':7,'AAII':7,'HYOAS':5,'IPO':3}
 REVERSE={'SOX_DEV':False,'NDQ_DEV':False,'CONC':False,'CONC_PREMIUM':False,'BREADTH':False,
