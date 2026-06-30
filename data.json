@@ -1,0 +1,225 @@
+{
+  "updated": "2026-06-15",
+  "P": {
+    "value": 1.34,
+    "phase": "加速膨胀期",
+    "desc": "引擎仍在加速,主升浪未完,泡沫可能吹得更高"
+  },
+  "M": {
+    "value": 2.3,
+    "desc": "潜在崩溃烈度:若此刻破裂的破坏力(以2000年为1.0)"
+  },
+  "R": {
+    "value": 1.09,
+    "trend": 0.048,
+    "trend_dir": "up",
+    "desc": "反身性引擎活性:还有没有新资金在涌入推高"
+  },
+  "indicators": [
+    {
+      "key": "SOX_DEV",
+      "name": "半导体偏离200日均线",
+      "desc": "半导体板块价格高于年线的幅度,越高越脆弱",
+      "value": 71.76,
+      "unit": "%",
+      "weight": 14,
+      "strength": 81,
+      "direction": "越高越危险",
+      "tier": 1
+    },
+    {
+      "key": "NDQ_DEV",
+      "name": "纳指偏离200日均线",
+      "desc": "纳斯达克价格高于年线的幅度",
+      "value": 9.88,
+      "unit": "%",
+      "weight": 12,
+      "strength": 95,
+      "direction": "越高越危险",
+      "tier": 1
+    },
+    {
+      "key": "BREADTH",
+      "name": "市场广度·涨跌家数",
+      "desc": "上涨家数占比,越窄说明只靠少数票撑",
+      "value": null,
+      "unit": "",
+      "weight": 11,
+      "strength": 19,
+      "direction": "越窄越危险",
+      "tier": 1
+    },
+    {
+      "key": "CAPE",
+      "name": "CAPE周期估值",
+      "desc": "席勒市盈率,扣除通胀的十年平均估值",
+      "value": 41.02,
+      "unit": "",
+      "weight": 10,
+      "strength": 81,
+      "direction": "越高越危险",
+      "tier": 2
+    },
+    {
+      "key": "CONC",
+      "name": "市场集中度·前十大权重",
+      "desc": "前十大公司占标普500权重,越集中越脆弱",
+      "value": 40.0,
+      "unit": "%",
+      "weight": 8,
+      "strength": 36,
+      "direction": "越高越危险",
+      "tier": 2
+    },
+    {
+      "key": "MARGIN_GDP",
+      "name": "保证金杠杆/GDP",
+      "desc": "融资余额占GDP比重,剔除通胀和增长后的真实杠杆",
+      "value": 4.64,
+      "unit": "%",
+      "weight": 8,
+      "strength": 150,
+      "direction": "越高越危险",
+      "tier": 2
+    },
+    {
+      "key": "VIX",
+      "name": "VIX自满累积",
+      "desc": "恐慌指数,越低越久说明市场越自满,压力越积越多",
+      "value": 16.2,
+      "unit": "",
+      "weight": 7,
+      "strength": 10,
+      "direction": "越低越久越危险",
+      "tier": 2
+    },
+    {
+      "key": "AAII",
+      "name": "AAII散户情绪",
+      "desc": "看涨减看跌,越贪婪越接近顶",
+      "value": -17.29,
+      "unit": "%",
+      "weight": 7,
+      "strength": 15,
+      "direction": "越贪婪越危险",
+      "tier": 2
+    },
+    {
+      "key": "CONC_PREMIUM",
+      "name": "集中度泡沫溢价",
+      "desc": "前十大权重减盈利占比,区分真护城河与估值泡沫",
+      "value": 8.7,
+      "unit": "%",
+      "weight": 5,
+      "strength": 36,
+      "direction": "越高越危险",
+      "tier": 3
+    },
+    {
+      "key": "HYOAS",
+      "name": "高收益债信用利差",
+      "desc": "垃圾债与国债利差,越低说明对风险定价越乐观",
+      "value": 2.66,
+      "unit": "%",
+      "weight": 5,
+      "strength": 53,
+      "direction": "越低越危险",
+      "tier": 3
+    },
+    {
+      "key": "IPO",
+      "name": "IPO狂热度",
+      "desc": "年度IPO数量,越多说明套现狂潮",
+      "value": 374.0,
+      "unit": "家/年",
+      "weight": 3,
+      "strength": 37,
+      "direction": "越高越危险",
+      "tier": 3
+    }
+  ],
+  "observations": [
+    {
+      "name": "2年期美债收益率",
+      "desc": "短端利率,2000顶6.55% vs 2022顶0.77%,与顶部无单调关系",
+      "value": 4.07,
+      "unit": "%"
+    },
+    {
+      "name": "10年期美债收益率",
+      "desc": "长端利率,宏观背景",
+      "value": 4.47,
+      "unit": "%"
+    },
+    {
+      "name": "美元指数DXY",
+      "desc": "美元强弱,资金流向背景",
+      "value": 99.63,
+      "unit": ""
+    },
+    {
+      "name": "VVIX·波动率的波动率",
+      "desc": "VIX自身的波动,2006年才有数据",
+      "value": 87.58,
+      "unit": ""
+    },
+    {
+      "name": "费城半导体指数·点位",
+      "desc": "半导体绝对点位,信息已由偏离均线纳入",
+      "value": 14099.6,
+      "unit": ""
+    }
+  ],
+  "history": [
+    {
+      "name": "2000年3月",
+      "label": "网络泡沫顶",
+      "P": 1.0,
+      "M": 1.0,
+      "R": 1.0,
+      "Rtrend": -0.09,
+      "result": "崩盘 -78%(纳指)",
+      "type": "估值泡沫剧烈触顶"
+    },
+    {
+      "name": "2007年10月",
+      "label": "信贷危机前",
+      "P": 0.67,
+      "M": 0.48,
+      "R": 1.11,
+      "Rtrend": -0.06,
+      "result": "危机 -57%(标普)",
+      "type": "股市泡沫中等·外力引爆"
+    },
+    {
+      "name": "2020年2月",
+      "label": "疫情前",
+      "P": 0.83,
+      "M": 0.85,
+      "R": 0.7,
+      "Rtrend": -0.01,
+      "result": "暴跌反弹 -34%",
+      "type": "外部黑天鹅·V型反弹"
+    },
+    {
+      "name": "2022年1月",
+      "label": "加息周期顶",
+      "P": 1.22,
+      "M": 1.66,
+      "R": 0.71,
+      "Rtrend": -0.41,
+      "result": "修正 -36%",
+      "type": "高P但引擎熄火"
+    },
+    {
+      "name": "今天",
+      "label": "AI周期",
+      "P": 1.34,
+      "M": 2.3,
+      "R": 1.09,
+      "Rtrend": 0.05,
+      "result": "进行中",
+      "type": "加速膨胀期"
+    }
+  ]
+}
