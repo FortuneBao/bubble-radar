@@ -1,0 +1,1319 @@
+{
+  "updated": "2026-06-26",
+  "P": {
+    "value": 0.963,
+    "phase": {
+      "zh": "史上最紧 · 破裂未发生",
+      "en": "Tightest in history · no rupture yet",
+      "ko": "역사상 가장 팽팽 · 아직 붕괴 없음"
+    },
+    "desc": {
+      "zh": "结构压力已超 2000，是五个时点里最高的；但破裂确认灯仍绿。",
+      "en": "Structural pressure now exceeds 2000 — the highest of the five moments; but the rupture-confirmation light is still green.",
+      "ko": "구조적 압력이 이미 2000년을 넘어 다섯 시점 중 최고; 그러나 붕괴 확인등은 여전히 초록."
+    }
+  },
+  "M": {
+    "value": 0.567,
+    "desc": {
+      "zh": "高位累积的\"重量\"——压在地基上的炸药当量，五时点最高。",
+      "en": "The \"weight\" accumulated up high — the dynamite load pressing on the foundation, the highest of the five moments.",
+      "ko": "고점에 누적된 \"무게\" — 지반을 짓누르는 폭약 당량, 다섯 시점 중 최고."
+    }
+  },
+  "R": {
+    "value": 0.578,
+    "trend": -0.31,
+    "trend_dir": "down",
+    "desc": {
+      "zh": "维系繁荣的活水还旺不旺（已降为辅助，不作扳机）。",
+      "en": "Whether the inflow sustaining the boom is still running strong (demoted to auxiliary, not a trigger).",
+      "ko": "번영을 떠받치는 유입이 아직 왕성한지 (보조로 강등, 방아쇠 아님)."
+    }
+  },
+  "gate": {
+    "color": "green",
+    "label": {
+      "zh": "趋势完好",
+      "en": "Trend intact",
+      "ko": "추세 양호"
+    },
+    "desc": {
+      "zh": "三大指数都在 200 日线上方、波动不高——破裂尚未开始。",
+      "en": "All three major indices above the 200-day line, volatility not high — the rupture has not begun.",
+      "ko": "3대 지수가 모두 200일선 위, 변동성도 높지 않음 — 붕괴는 아직 시작되지 않음."
+    }
+  },
+  "action": {
+    "phase": {
+      "zh": "满仓骑",
+      "en": "Ride at full position",
+      "ko": "풀 포지션 유지"
+    },
+    "phase_desc": {
+      "zh": "旗标 ON 但趋势完好🟢 → 满仓骑泡沫，黄灯亮再减仓",
+      "en": "Flag ON but trend intact 🟢 → ride the bubble at full position; start trimming only once the light turns yellow.",
+      "ko": "깃발 ON이지만 추세 양호 🟢 → 풀 포지션으로 버블에 올라타고, 노란불이 켜질 때 비중 축소 시작."
+    },
+    "flag_on": true,
+    "P_pct": 0.94,
+    "credit": false,
+    "light": "green",
+    "weeks_broken": 0
+  },
+  "indicators": [
+    {
+      "key": "SOX_DEV",
+      "name": {
+        "zh": "半导体偏离200日均线",
+        "en": "Semiconductors vs 200-day avg",
+        "ko": "반도체 200일선 이격"
+      },
+      "desc": {
+        "zh": "半导体板块价格高于年线的幅度,越高越脆弱",
+        "en": "How far the semiconductor sector trades above its yearly average; higher = more fragile",
+        "ko": "반도체 가격이 연평균선보다 높은 정도; 높을수록 취약"
+      },
+      "value": 54.81,
+      "unit": "%",
+      "weight": 14,
+      "strength": 98.9,
+      "direction": {
+        "zh": "越高越危险",
+        "en": "higher = more dangerous",
+        "ko": "높을수록 위험"
+      },
+      "tier": 1
+    },
+    {
+      "key": "NDQ_DEV",
+      "name": {
+        "zh": "纳指偏离200日均线",
+        "en": "Nasdaq vs 200-day avg",
+        "ko": "나스닥 200일선 이격"
+      },
+      "desc": {
+        "zh": "纳斯达克价格高于年线的幅度",
+        "en": "How far the Nasdaq trades above its yearly average",
+        "ko": "나스닥이 연평균선보다 높은 정도"
+      },
+      "value": 7.08,
+      "unit": "%",
+      "weight": 12,
+      "strength": 52.8,
+      "direction": {
+        "zh": "越高越危险",
+        "en": "higher = more dangerous",
+        "ko": "높을수록 위험"
+      },
+      "tier": 1
+    },
+    {
+      "key": "BREADTH",
+      "name": {
+        "zh": "市场广度·SPY÷RSP",
+        "en": "Market breadth · SPY÷RSP",
+        "ko": "시장 폭 · SPY÷RSP"
+      },
+      "desc": {
+        "zh": "市值加权SPY÷等权RSP,比值越高=涨幅越集中在少数巨头=广度越窄",
+        "en": "Cap-weighted SPY ÷ equal-weight RSP; the higher the ratio, the more gains concentrate in a few giants = the narrower the breadth",
+        "ko": "시총가중 SPY ÷ 동일가중 RSP; 비율이 높을수록 상승이 소수 거대 기업에 집중 = 폭이 좁음"
+      },
+      "value": 3.47,
+      "unit": "",
+      "weight": 11,
+      "strength": 97.2,
+      "direction": {
+        "zh": "越窄越危险",
+        "en": "narrower = more dangerous",
+        "ko": "좁을수록 위험"
+      },
+      "tier": 1
+    },
+    {
+      "key": "CAPE",
+      "name": {
+        "zh": "CAPE周期估值",
+        "en": "CAPE cyclical valuation",
+        "ko": "CAPE 경기조정 밸류에이션"
+      },
+      "desc": {
+        "zh": "席勒市盈率,扣除通胀的十年平均估值",
+        "en": "The Shiller P/E, a ten-year average valuation adjusted for inflation",
+        "ko": "실러 PER, 인플레이션을 제거한 10년 평균 밸류에이션"
+      },
+      "value": 41.02,
+      "unit": "",
+      "weight": 10,
+      "strength": 99.0,
+      "direction": {
+        "zh": "越高越危险",
+        "en": "higher = more dangerous",
+        "ko": "높을수록 위험"
+      },
+      "tier": 2
+    },
+    {
+      "key": "CONC",
+      "name": {
+        "zh": "市场集中度·前十大权重",
+        "en": "Concentration · top-10 weight",
+        "ko": "시장 집중도 · 상위 10종목 비중"
+      },
+      "desc": {
+        "zh": "前十大公司占标普500权重,越集中越脆弱",
+        "en": "The top-ten companies’ weight in the S&P 500; the more concentrated, the more fragile",
+        "ko": "상위 10개 기업의 S&P 500 내 비중; 집중될수록 취약"
+      },
+      "value": 40.0,
+      "unit": "%",
+      "weight": 8,
+      "strength": 100.0,
+      "direction": {
+        "zh": "越高越危险",
+        "en": "higher = more dangerous",
+        "ko": "높을수록 위험"
+      },
+      "tier": 2
+    },
+    {
+      "key": "MARGIN_GDP",
+      "name": {
+        "zh": "保证金杠杆/GDP",
+        "en": "Margin leverage / GDP",
+        "ko": "신용잔고 레버리지 / GDP"
+      },
+      "desc": {
+        "zh": "融资余额占GDP比重,剔除通胀和增长后的真实杠杆",
+        "en": "Margin debt as a share of GDP — the true leverage after stripping out inflation and growth",
+        "ko": "신용잔고의 GDP 대비 비중 — 인플레이션과 성장을 제거한 진짜 레버리지"
+      },
+      "value": 4.64,
+      "unit": "%",
+      "weight": 8,
+      "strength": 100.0,
+      "direction": {
+        "zh": "越高越危险",
+        "en": "higher = more dangerous",
+        "ko": "높을수록 위험"
+      },
+      "tier": 2
+    },
+    {
+      "key": "VIX",
+      "name": {
+        "zh": "VIX自满累积",
+        "en": "VIX complacency build-up",
+        "ko": "VIX 안주 누적"
+      },
+      "desc": {
+        "zh": "恐慌指数,越低越久说明市场越自满,压力越积越多",
+        "en": "The fear index; the lower and longer it stays, the more complacent the market and the more pressure piles up",
+        "ko": "공포 지수; 낮고 오래일수록 시장이 안주하고 압력이 더 쌓임"
+      },
+      "value": 18.41,
+      "unit": "",
+      "weight": 7,
+      "strength": 45.6,
+      "direction": {
+        "zh": "越低越久越危险",
+        "en": "lower & longer = more dangerous",
+        "ko": "낮고 오래일수록 위험"
+      },
+      "tier": 2
+    },
+    {
+      "key": "AAII",
+      "name": {
+        "zh": "AAII散户情绪",
+        "en": "AAII retail sentiment",
+        "ko": "AAII 개인 심리"
+      },
+      "desc": {
+        "zh": "看涨减看跌,越贪婪越接近顶",
+        "en": "Bulls minus bears; the greedier, the closer to a top",
+        "ko": "강세 − 약세; 탐욕적일수록 천장에 가까움"
+      },
+      "value": 8.8,
+      "unit": "%",
+      "weight": 7,
+      "strength": 77.2,
+      "direction": {
+        "zh": "越贪婪越危险",
+        "en": "greedier = more dangerous",
+        "ko": "탐욕적일수록 위험"
+      },
+      "tier": 2
+    },
+    {
+      "key": "CONC_PREMIUM",
+      "name": {
+        "zh": "集中度泡沫溢价",
+        "en": "Concentration bubble premium",
+        "ko": "집중도 버블 프리미엄"
+      },
+      "desc": {
+        "zh": "前十大权重减盈利占比,区分真护城河与估值泡沫",
+        "en": "Top-ten weight minus earnings share — separating a real moat from a valuation bubble",
+        "ko": "상위 10종목 비중 − 이익 비중 — 진짜 해자와 밸류에이션 버블을 구별"
+      },
+      "value": 8.7,
+      "unit": "%",
+      "weight": 5,
+      "strength": 100.0,
+      "direction": {
+        "zh": "越高越危险",
+        "en": "higher = more dangerous",
+        "ko": "높을수록 위험"
+      },
+      "tier": 3
+    },
+    {
+      "key": "HYOAS",
+      "name": {
+        "zh": "高收益债信用利差",
+        "en": "High-yield credit spread",
+        "ko": "하이일드 신용 스프레드"
+      },
+      "desc": {
+        "zh": "垃圾债与国债利差,越低说明对风险定价越乐观",
+        "en": "The spread between junk bonds and Treasuries; the lower it is, the more optimistically risk is priced",
+        "ko": "정크본드와 국채의 스프레드; 낮을수록 위험을 낙관적으로 가격에 반영"
+      },
+      "value": 2.78,
+      "unit": "%",
+      "weight": 5,
+      "strength": 95.6,
+      "direction": {
+        "zh": "越低越危险",
+        "en": "lower = more dangerous",
+        "ko": "낮을수록 위험"
+      },
+      "tier": 3
+    },
+    {
+      "key": "IPO",
+      "name": {
+        "zh": "IPO狂热度",
+        "en": "IPO mania",
+        "ko": "IPO 과열도"
+      },
+      "desc": {
+        "zh": "年度IPO数量,越多说明套现狂潮",
+        "en": "The annual number of IPOs; the more there are, the bigger the cash-out frenzy",
+        "ko": "연간 IPO 건수; 많을수록 차익 실현 열풍"
+      },
+      "value": 374.0,
+      "unit": "家/年",
+      "weight": 3,
+      "strength": 88.0,
+      "direction": {
+        "zh": "越高越危险",
+        "en": "higher = more dangerous",
+        "ko": "높을수록 위험"
+      },
+      "tier": 3
+    }
+  ],
+  "observations": [
+    {
+      "name": {
+        "zh": "2年期美债收益率",
+        "en": "2-year Treasury yield",
+        "ko": "2년 국채 수익률"
+      },
+      "desc": {
+        "zh": "短端利率,2000顶6.55% vs 2022顶0.77%,与顶部无单调关系",
+        "en": "Short-end rates; 6.55% at the 2000 top vs 0.77% at the 2022 top — no monotonic relationship with tops",
+        "ko": "단기 금리; 2000년 천장 6.55% vs 2022년 천장 0.77% — 천장과 단조 관계 없음"
+      },
+      "value": 4.2,
+      "unit": "%"
+    },
+    {
+      "name": {
+        "zh": "10年期美债收益率",
+        "en": "10-year Treasury yield",
+        "ko": "10년 국채 수익률"
+      },
+      "desc": {
+        "zh": "长端利率,宏观背景",
+        "en": "Long-end rates; macro backdrop",
+        "ko": "장기 금리; 거시 배경"
+      },
+      "value": 4.43,
+      "unit": "%"
+    },
+    {
+      "name": {
+        "zh": "美元指数DXY",
+        "en": "Dollar index (DXY)",
+        "ko": "달러 지수 DXY"
+      },
+      "desc": {
+        "zh": "美元强弱,资金流向背景",
+        "en": "Dollar strength; a backdrop for capital flows",
+        "ko": "달러 강약; 자금 흐름 배경"
+      },
+      "value": 99.52,
+      "unit": ""
+    },
+    {
+      "name": {
+        "zh": "VVIX·波动率的波动率",
+        "en": "VVIX · volatility of volatility",
+        "ko": "VVIX · 변동성의 변동성"
+      },
+      "desc": {
+        "zh": "VIX自身的波动,2006年才有数据",
+        "en": "The volatility of the VIX itself; data only from 2006",
+        "ko": "VIX 자체의 변동성; 2006년부터 데이터"
+      },
+      "value": 99.5,
+      "unit": ""
+    },
+    {
+      "name": {
+        "zh": "费城半导体指数·点位",
+        "en": "Philadelphia Semiconductor Index · level",
+        "ko": "필라델피아 반도체 지수 · 지수"
+      },
+      "desc": {
+        "zh": "半导体绝对点位,信息已由偏离均线纳入",
+        "en": "The absolute level of semiconductors; its information is already captured by the deviation-from-average indicator",
+        "ko": "반도체 절대 지수; 그 정보는 이미 이동평균 이격 지표에 반영됨"
+      },
+      "value": 13203.6,
+      "unit": ""
+    }
+  ],
+  "history": [
+    {
+      "name": {
+        "zh": "2000年3月",
+        "en": "March 2000",
+        "ko": "2000년 3월"
+      },
+      "label": {
+        "zh": "网络泡沫顶",
+        "en": "Dot-com top",
+        "ko": "닷컴 천장"
+      },
+      "P": 0.879,
+      "M": 0.644,
+      "R": 0.367,
+      "Rtrend": -0.05,
+      "gate": "yellow",
+      "result": {
+        "zh": "崩盘 -78%(纳指)",
+        "en": "Crash −78% (Nasdaq)",
+        "ko": "폭락 −78% (나스닥)"
+      },
+      "type": {
+        "zh": "估值泡沫·顶部全程黄灯",
+        "en": "Valuation bubble · yellow throughout the top",
+        "ko": "밸류에이션 버블 · 천장 내내 노랑"
+      }
+    },
+    {
+      "name": {
+        "zh": "2007年10月",
+        "en": "October 2007",
+        "ko": "2007년 10월"
+      },
+      "label": {
+        "zh": "信贷危机前",
+        "en": "Before the credit crisis",
+        "ko": "신용위기 직전"
+      },
+      "P": 0.746,
+      "M": 0.516,
+      "R": 0.541,
+      "Rtrend": -0.18,
+      "gate": "green",
+      "result": {
+        "zh": "危机 -57%(标普)",
+        "en": "Crisis −57% (S&P)",
+        "ko": "위기 −57% (S&P)"
+      },
+      "type": {
+        "zh": "信贷外溢·非股市自爆",
+        "en": "Credit spillover · not an equity self-implosion",
+        "ko": "신용 전이 · 증시 자폭 아님"
+      }
+    },
+    {
+      "name": {
+        "zh": "2020年2月",
+        "en": "February 2020",
+        "ko": "2020년 2월"
+      },
+      "label": {
+        "zh": "疫情前",
+        "en": "Before COVID",
+        "ko": "코로나 직전"
+      },
+      "P": 0.943,
+      "M": 0.535,
+      "R": 0.699,
+      "Rtrend": 0.22,
+      "gate": "green",
+      "result": {
+        "zh": "黑天鹅 -34%",
+        "en": "Black swan −34%",
+        "ko": "블랙스완 −34%"
+      },
+      "type": {
+        "zh": "外部冲击·V型反弹",
+        "en": "External shock · V-shaped rebound",
+        "ko": "외부 충격 · V자 반등"
+      }
+    },
+    {
+      "name": {
+        "zh": "2022年1月",
+        "en": "January 2022",
+        "ko": "2022년 1월"
+      },
+      "label": {
+        "zh": "加息周期顶",
+        "en": "Rate-hike cycle top",
+        "ko": "금리 인상 사이클 천장"
+      },
+      "P": 0.786,
+      "M": 0.297,
+      "R": 0.688,
+      "Rtrend": -0.09,
+      "gate": "green",
+      "result": {
+        "zh": "加息熊 -36%",
+        "en": "Rate-hike bear −36%",
+        "ko": "금리 인상 약세장 −36%"
+      },
+      "type": {
+        "zh": "引擎熄火·政策戳破",
+        "en": "Engine stalled · policy pricked it",
+        "ko": "엔진 정지 · 정책이 찌름"
+      }
+    },
+    {
+      "name": {
+        "zh": "今天",
+        "en": "Today",
+        "ko": "오늘"
+      },
+      "label": {
+        "zh": "AI周期",
+        "en": "AI cycle",
+        "ko": "AI 사이클"
+      },
+      "P": 0.963,
+      "M": 0.567,
+      "R": 0.578,
+      "Rtrend": -0.31,
+      "gate": "green",
+      "result": {
+        "zh": "进行中",
+        "en": "In progress",
+        "ko": "진행 중"
+      },
+      "type": {
+        "zh": "史上最紧·趋势完好",
+        "en": "Tightest in history · trend intact",
+        "ko": "역사상 가장 팽팽 · 추세 양호"
+      }
+    }
+  ],
+  "replay": {
+    "2000": {
+      "label": "网络泡沫顶",
+      "top_date": "2000-03-10",
+      "weeks": [
+        {
+          "date": "2000-01-28",
+          "P": 0.781,
+          "M": 0.523,
+          "R": 0.358,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-02-04",
+          "P": 0.826,
+          "M": 0.574,
+          "R": 0.453,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-02-11",
+          "P": 0.79,
+          "M": 0.558,
+          "R": 0.387,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-02-18",
+          "P": 0.731,
+          "M": 0.448,
+          "R": 0.365,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-02-25",
+          "P": 0.783,
+          "M": 0.477,
+          "R": 0.346,
+          "gate": "red",
+          "gate_label": "暴力崩盘",
+          "is_top": false
+        },
+        {
+          "date": "2000-03-03",
+          "P": 0.876,
+          "M": 0.624,
+          "R": 0.388,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-03-10",
+          "P": 0.879,
+          "M": 0.644,
+          "R": 0.367,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": true
+        },
+        {
+          "date": "2000-03-17",
+          "P": 0.828,
+          "M": 0.547,
+          "R": 0.401,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-03-24",
+          "P": 0.823,
+          "M": 0.523,
+          "R": 0.517,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-03-31",
+          "P": 0.755,
+          "M": 0.499,
+          "R": 0.423,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-04-07",
+          "P": 0.78,
+          "M": 0.533,
+          "R": 0.531,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-04-14",
+          "P": 0.523,
+          "M": 0.271,
+          "R": 0.475,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        },
+        {
+          "date": "2000-04-21",
+          "P": 0.644,
+          "M": 0.353,
+          "R": 0.5,
+          "gate": "yellow",
+          "gate_label": "波动惊吓·趋势未破",
+          "is_top": false
+        }
+      ]
+    },
+    "2007": {
+      "label": "信贷危机前",
+      "top_date": "2007-10-09",
+      "weeks": [
+        {
+          "date": "2007-08-31",
+          "P": 0.613,
+          "M": 0.396,
+          "R": 0.406,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-09-07",
+          "P": 0.586,
+          "M": 0.364,
+          "R": 0.383,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-09-14",
+          "P": 0.604,
+          "M": 0.39,
+          "R": 0.414,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-09-21",
+          "P": 0.683,
+          "M": 0.418,
+          "R": 0.475,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-09-28",
+          "P": 0.691,
+          "M": 0.442,
+          "R": 0.508,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-10-05",
+          "P": 0.727,
+          "M": 0.489,
+          "R": 0.537,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-10-12",
+          "P": 0.723,
+          "M": 0.489,
+          "R": 0.519,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": true
+        },
+        {
+          "date": "2007-10-19",
+          "P": 0.641,
+          "M": 0.382,
+          "R": 0.38,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-10-26",
+          "P": 0.615,
+          "M": 0.365,
+          "R": 0.443,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-11-02",
+          "P": 0.658,
+          "M": 0.417,
+          "R": 0.319,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-11-09",
+          "P": 0.539,
+          "M": 0.308,
+          "R": 0.241,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2007-11-16",
+          "P": 0.539,
+          "M": 0.293,
+          "R": 0.235,
+          "gate": "yellow",
+          "gate_label": "早期破位",
+          "is_top": false
+        },
+        {
+          "date": "2007-11-23",
+          "P": 0.516,
+          "M": 0.239,
+          "R": 0.211,
+          "gate": "yellow",
+          "gate_label": "早期破位",
+          "is_top": false
+        }
+      ]
+    },
+    "2020": {
+      "label": "疫情前",
+      "top_date": "2020-02-19",
+      "weeks": [
+        {
+          "date": "2020-01-10",
+          "P": 0.912,
+          "M": 0.513,
+          "R": 0.619,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2020-01-17",
+          "P": 0.989,
+          "M": 0.582,
+          "R": 0.655,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2020-01-24",
+          "P": 0.968,
+          "M": 0.56,
+          "R": 0.568,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2020-01-31",
+          "P": 0.832,
+          "M": 0.406,
+          "R": 0.504,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2020-02-07",
+          "P": 0.847,
+          "M": 0.441,
+          "R": 0.666,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2020-02-14",
+          "P": 0.922,
+          "M": 0.535,
+          "R": 0.729,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2020-02-21",
+          "P": 0.882,
+          "M": 0.48,
+          "R": 0.587,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": true
+        },
+        {
+          "date": "2020-02-28",
+          "P": 0.655,
+          "M": 0.228,
+          "R": 0.419,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2020-03-06",
+          "P": 0.653,
+          "M": 0.245,
+          "R": 0.349,
+          "gate": "yellow",
+          "gate_label": "早期破位",
+          "is_top": false
+        },
+        {
+          "date": "2020-03-13",
+          "P": 0.581,
+          "M": 0.196,
+          "R": 0.298,
+          "gate": "red",
+          "gate_label": "暴力崩盘",
+          "is_top": false
+        },
+        {
+          "date": "2020-03-20",
+          "P": 0.564,
+          "M": 0.163,
+          "R": 0.274,
+          "gate": "red",
+          "gate_label": "暴力崩盘",
+          "is_top": false
+        },
+        {
+          "date": "2020-03-27",
+          "P": 0.544,
+          "M": 0.13,
+          "R": 0.268,
+          "gate": "red",
+          "gate_label": "暴力崩盘",
+          "is_top": false
+        },
+        {
+          "date": "2020-04-03",
+          "P": 0.533,
+          "M": 0.11,
+          "R": 0.371,
+          "gate": "red",
+          "gate_label": "暴力崩盘",
+          "is_top": false
+        }
+      ]
+    },
+    "2022": {
+      "label": "加息周期顶",
+      "top_date": "2022-01-03",
+      "weeks": [
+        {
+          "date": "2021-11-26",
+          "P": 0.739,
+          "M": 0.267,
+          "R": 0.653,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2021-12-03",
+          "P": 0.704,
+          "M": 0.214,
+          "R": 0.589,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2021-12-10",
+          "P": 0.763,
+          "M": 0.233,
+          "R": 0.675,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2021-12-17",
+          "P": 0.702,
+          "M": 0.205,
+          "R": 0.612,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2021-12-24",
+          "P": 0.762,
+          "M": 0.298,
+          "R": 0.676,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2021-12-31",
+          "P": 0.769,
+          "M": 0.273,
+          "R": 0.676,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": true
+        },
+        {
+          "date": "2022-01-07",
+          "P": 0.703,
+          "M": 0.198,
+          "R": 0.568,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2022-01-14",
+          "P": 0.69,
+          "M": 0.181,
+          "R": 0.562,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2022-01-21",
+          "P": 0.592,
+          "M": 0.12,
+          "R": 0.482,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2022-01-28",
+          "P": 0.593,
+          "M": 0.108,
+          "R": 0.457,
+          "gate": "yellow",
+          "gate_label": "早期破位",
+          "is_top": false
+        },
+        {
+          "date": "2022-02-04",
+          "P": 0.615,
+          "M": 0.113,
+          "R": 0.42,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2022-02-11",
+          "P": 0.58,
+          "M": 0.049,
+          "R": 0.399,
+          "gate": "green",
+          "gate_label": "趋势完好",
+          "is_top": false
+        },
+        {
+          "date": "2022-02-18",
+          "P": 0.561,
+          "M": 0.067,
+          "R": 0.387,
+          "gate": "yellow",
+          "gate_label": "早期破位",
+          "is_top": false
+        }
+      ]
+    }
+  },
+  "lights20": [
+    {
+      "date": "2026-02-20",
+      "gate": "green",
+      "P": 0.875
+    },
+    {
+      "date": "2026-02-27",
+      "gate": "green",
+      "P": 0.953
+    },
+    {
+      "date": "2026-03-06",
+      "gate": "green",
+      "P": 0.909
+    },
+    {
+      "date": "2026-03-13",
+      "gate": "green",
+      "P": 0.908
+    },
+    {
+      "date": "2026-03-20",
+      "gate": "green",
+      "P": 0.864
+    },
+    {
+      "date": "2026-03-27",
+      "gate": "yellow",
+      "P": 0.842
+    },
+    {
+      "date": "2026-04-03",
+      "gate": "yellow",
+      "P": 0.953
+    },
+    {
+      "date": "2026-04-10",
+      "gate": "green",
+      "P": 1.029
+    },
+    {
+      "date": "2026-04-17",
+      "gate": "green",
+      "P": 1.054
+    },
+    {
+      "date": "2026-04-24",
+      "gate": "green",
+      "P": 1.106
+    },
+    {
+      "date": "2026-05-01",
+      "gate": "green",
+      "P": 1.09
+    },
+    {
+      "date": "2026-05-08",
+      "gate": "green",
+      "P": 1.105
+    },
+    {
+      "date": "2026-05-15",
+      "gate": "green",
+      "P": 1.043
+    },
+    {
+      "date": "2026-05-22",
+      "gate": "green",
+      "P": 1.041
+    },
+    {
+      "date": "2026-05-29",
+      "gate": "green",
+      "P": 1.079
+    },
+    {
+      "date": "2026-06-05",
+      "gate": "green",
+      "P": 0.999
+    },
+    {
+      "date": "2026-06-12",
+      "gate": "green",
+      "P": 0.982
+    },
+    {
+      "date": "2026-06-19",
+      "gate": "green",
+      "P": 1.051
+    },
+    {
+      "date": "2026-06-23",
+      "gate": "green",
+      "P": 0.991
+    },
+    {
+      "date": "2026-06-26",
+      "gate": "green",
+      "P": 0.963
+    }
+  ],
+  "redmonths": [
+    "2000-05",
+    "2000-10",
+    "2000-11",
+    "2000-12",
+    "2001-01",
+    "2001-02",
+    "2001-03",
+    "2001-04",
+    "2001-05",
+    "2001-06",
+    "2001-07",
+    "2001-09",
+    "2002-08",
+    "2002-09",
+    "2002-10",
+    "2002-11",
+    "2002-12",
+    "2008-10",
+    "2008-11",
+    "2008-12",
+    "2009-01",
+    "2009-02",
+    "2009-03",
+    "2009-04",
+    "2020-03",
+    "2020-04"
+  ],
+  "episodes": [
+    {
+      "start": "2000-01",
+      "end": "2003-03",
+      "months": 39,
+      "R": 17,
+      "O": 11,
+      "Y": 9,
+      "G": 2,
+      "event": {
+        "zh": "互联网泡沫顶 + 二次探底",
+        "en": "Dot-com top + double bottom",
+        "ko": "닷컴 천장 + 이중 바닥"
+      },
+      "hasred": true
+    },
+    {
+      "start": "2007-11",
+      "end": "2009-06",
+      "months": 20,
+      "R": 7,
+      "O": 9,
+      "Y": 3,
+      "G": 1,
+      "event": {
+        "zh": "全球金融危机",
+        "en": "Global financial crisis",
+        "ko": "글로벌 금융위기"
+      },
+      "hasred": true
+    },
+    {
+      "start": "2020-03",
+      "end": "2020-08",
+      "months": 6,
+      "R": 2,
+      "O": 0,
+      "Y": 4,
+      "G": 0,
+      "event": {
+        "zh": "新冠闪崩",
+        "en": "COVID flash crash",
+        "ko": "코로나 급락"
+      },
+      "hasred": true
+    },
+    {
+      "start": "2022-02",
+      "end": "2022-12",
+      "months": 11,
+      "R": 0,
+      "O": 9,
+      "Y": 1,
+      "G": 1,
+      "event": {
+        "zh": "加息熊市(全程橙·从未红)",
+        "en": "Rate-hike bear (orange throughout · never red)",
+        "ko": "금리 인상 약세장 (내내 주황 · 한 번도 빨강 아님)"
+      },
+      "hasred": false
+    },
+    {
+      "start": "2011-08",
+      "end": "2011-11",
+      "months": 4,
+      "R": 0,
+      "O": 4,
+      "Y": 0,
+      "G": 0,
+      "event": {
+        "zh": "欧债危机/美债降级",
+        "en": "Euro crisis / US downgrade",
+        "ko": "유럽 재정위기 / 미국 신용강등"
+      },
+      "hasred": false
+    },
+    {
+      "start": "2010-05",
+      "end": "2010-08",
+      "months": 4,
+      "R": 0,
+      "O": 2,
+      "Y": 1,
+      "G": 1,
+      "event": {
+        "zh": "闪崩/欧债初",
+        "en": "Flash crash / early euro crisis",
+        "ko": "플래시 크래시 / 유럽 재정위기 초기"
+      },
+      "hasred": false
+    },
+    {
+      "start": "2018-10",
+      "end": "2019-01",
+      "months": 4,
+      "R": 0,
+      "O": 2,
+      "Y": 2,
+      "G": 0,
+      "event": {
+        "zh": "2018Q4暴跌",
+        "en": "Q4 2018 plunge",
+        "ko": "2018년 4분기 급락"
+      },
+      "hasred": false
+    },
+    {
+      "start": "1998-09",
+      "end": "1999-09",
+      "months": 13,
+      "R": 0,
+      "O": 1,
+      "Y": 10,
+      "G": 2,
+      "event": {
+        "zh": "LTCM余波",
+        "en": "LTCM aftermath",
+        "ko": "LTCM 여파"
+      },
+      "hasred": false
+    },
+    {
+      "start": "1994-04",
+      "end": "1994-07",
+      "months": 4,
+      "R": 0,
+      "O": 0,
+      "Y": 4,
+      "G": 0,
+      "event": {
+        "zh": "1994债灾",
+        "en": "1994 bond rout",
+        "ko": "1994 채권 폭락"
+      },
+      "hasred": false
+    },
+    {
+      "start": "1997-05",
+      "end": "1998-04",
+      "months": 12,
+      "R": 0,
+      "O": 0,
+      "Y": 11,
+      "G": 1,
+      "event": {
+        "zh": "亚洲金融危机",
+        "en": "Asian financial crisis",
+        "ko": "아시아 금융위기"
+      },
+      "hasred": false
+    },
+    {
+      "start": "2004-07",
+      "end": "2004-09",
+      "months": 3,
+      "R": 0,
+      "O": 0,
+      "Y": 3,
+      "G": 0,
+      "event": {
+        "zh": "2004夏季回调",
+        "en": "Summer 2004 pullback",
+        "ko": "2004년 여름 조정"
+      },
+      "hasred": false
+    }
+  ]
+}

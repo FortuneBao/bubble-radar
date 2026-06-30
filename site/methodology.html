@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>方法论 · 泡泡龙</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.svg" alt="泡泡龙">
+      <span class="nm">泡泡龙<small>PAOPAOLONG · 泡沫雷达</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_live">● 实时</a>
+      <a href="story.html" data-i18n="nav_story">原理故事</a>
+      <a href="methodology.html" class="live" data-i18n="nav_method">方法论</a>
+      <a href="message.html" data-i18n="nav_message">给我留言</a>
+    </div>
+    <div class="lang-switch" id="lang-switch"><button data-lang="zh" class="on">中文</button><button data-lang="en">English</button><button data-lang="ko">한국어</button></div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <header class="hero" style="padding-bottom:10px">
+    <a href="index.html" class="back-link" data-i18n="back_home">← 返回首页</a>
+    <h1 class="hero-head" style="font-size:clamp(24px,3.5vw,34px)" data-i18n="m_title">方法论：公式、参数与数据来源</h1>
+    <p class="hero-sub" data-i18n="m_sub">这一页，是给那个"被嘲笑的预言者"补上的东西——把 P、M、R 三个数字背后的全部数学、每一个参数的取值、每一项数据的来源，毫无保留地摊开。这部分严谨、也许有点枯燥，但它是这套方法能不能让你信服的全部底气。</p>
+  </header>
+
+  <div class="toc" data-i18n="m_toc">
+    <div class="toc-t">目录</div>
+    <a href="#concept">一、三个数字到底在量什么</a>
+    <a href="#time">二、核心思想：一切都带时间维度</a>
+    <a href="#pformula">三、P 值（压力）的完整公式</a>
+    <a href="#mformula">四、M 值（烈度）的完整公式</a>
+    <a href="#rformula">五、R 值（反身性）的完整公式</a>
+    <a href="#weights">六、指标清单、权重与数据来源</a>
+    <a href="#correction">七、两个关键矫正：通胀与垄断</a>
+    <a href="#validation">八、历史校验：四种死法 + 四色灯</a>
+    <a href="#actionlayer">九、动作层 · 旗标/信贷/命中率</a>
+    <a href="#limits">十、诚实边界</a>
+  </div>
+
+  <div class="m-section" id="concept" data-i18n="ms1">
+    <h2><span class="mn">01</span>三个数字到底在量什么</h2>
+    <p>把市场想象成故事里那座建在软土上的城。三个数字，分别回答三个问题：</p>
+    <h3>P · 压力（Pressure）—— 气球现在多紧</h3>
+    <p>综合所有泡沫信号，衡量市场离"临界点"有多近。每个指标只跟<b>它自己之前的历史</b>比排名（point-in-time 外生百分位），没有任何"以某一年为基准"的设定——今天和 2000 年用完全相同的方法各自算出。能量位 E 是 0–1 的百分位，但当压力既极端、又在加速时，时间动能会把 P 顶过 1.0（6 月峰值曾达 1.029）——<b>今天 P=0.963，仍是五时点最高、超过 2000 年（0.879）</b>，但两者谁也不是谁的基准。</p>
+    <h3>M · 烈度（Magnitude）—— 若爆会多猛</h3>
+    <p>衡量"如果此刻崩塌，潜在的破坏力有多大"。它是过去 60 个月压力 P 的"升蓄降放"时间积分——<b>压得越重、憋得越久，崩起来越惨</b>。同样是 point-in-time、无基准。注意：这是<b>潜在</b>烈度（装了多少炸药），实际崩幅还取决于"怎么引爆"。</p>
+    <h3>R · 反身性（Reflexivity）—— 还有没有人在吹</h3>
+    <p>衡量"维系繁荣的那股活水还旺不旺"。就像故事里：城市的稳固，是靠源源不断的钱和人不停地修、不停地撑出来的假象。<b>R 维持高位 = 假象在延续，泡沫还能撑；R 拐头向下 = 活水断流，被掩盖的脆弱暴露。</b>但我们用 155 年历史检验后发现：单看 R 趋势（或任何价格速度）转负去抓顶，精确率只有约 11%——所以 <b>R 趋势已降为辅助 tilt、不再作离场扳机</b>，真正的破裂确认交给下面的四色灯。</p>
+  </div>
+
+  <div class="m-section" id="time" data-i18n="ms2">
+    <h2><span class="mn">02</span>核心思想：一切都带时间维度</h2>
+    <p>这是整套模型与普通"估值高低"指标最根本的区别。我们认为，泡沫是一个<b>动力学过程</b>，时间是核心参数。任何一个指标，我们都不只看它"此刻在哪"，而是看它在一段时间里的<b>四个特征</b>：</p>
+    <ul>
+      <li><b>位置</b>：每个指标当前值在历史里有多极端 + 在高位停留了多久 → 合成<b>能量位 E</b>（当前分位 60% + 过去6月持留 40%）。</li>
+      <li><b>速度与加速度</b>：能量位 E 在过去 12 / 24 个月怎么走、是否在“加速地加速” → 放大成<b>压力 P</b>（第七支柱：动能∝动量²）。</li>
+      <li><b>累积</b>：过去 60 个月能量的“升蓄降放”时间积分（穿零重置）→ <b>烈度 M</b>。压得越久越重，崩得越响。</li>
+    </ul>
+    <p>三者都以<b>时间</b>为核心维度，且全程 point-in-time 无前视。下面是完整公式。</p>
+  </div>
+
+  <div class="m-section" id="pformula" data-i18n="ms3">
+    <h2><span class="mn">03</span>P 值（压力）的完整公式</h2>
+    <p>第一步，把每个指标转成 <b>point-in-time 外生百分位</b>——只跟它<b>自己之前</b>的历史比，绝不前视：</p>
+    <div class="formula"><span class="cm"># 指标 i 在 t 的危险百分位（只用 ≤ t 的数据）</span>
+pᵢ(t) = #{ s &lt; t : xᵢ(s) &lt; xᵢ(t) } / #{ s &lt; t }    <span class="cm">reverse 类取 1−p</span>
+        <span class="cm">冷启动：t 之前观测 &lt; 12 个 → 丢弃该指标</span></div>
+    <p>第二步，合成能量位 E——当前分位占 60%、过去 6 个月高位持留占 40%，按权重汇总：</p>
+    <div class="formula"><span class="cm"># 能量位 E（多维泡沫状态，0–1）</span>
+cᵢ(t) = 0.6·pᵢ(t) + 0.4·<span class="c">mean</span>{ pᵢ(t−m月) : m=0..6 }
+E(t)  = <span class="c">Σ</span> wᵢ·cᵢ(t) / <span class="c">Σ</span> wᵢ    <span class="cm">仅在场指标</span></div>
+    <p>第三步，动态压力 P = 能量位 × 时间动能放大（第七支柱）：</p>
+    <div class="formula"><span class="cm"># 速度、加速度（时间是核心维度）</span>
+v = E(t) − E(t−12月)
+a = [E(t)−E(t−12)] − [E(t−12)−E(t−24)]
+P(t) = E(t)·[ 1 + <span class="v">0.4</span>·tanh(v) + <span class="v">0.4</span>·max(0,a) ]
+       <span class="cm">→ E∈[0,1]；P 在“极端+加速”时可超过 1（6 月峰值 1.029，今天 = 0.963）</span></div>
+    <p><b>关键：全程无前视。</b>所有百分位都只用 ≤ t 的数据计算——历史/未来数据只用于事后回顾与校准。我们做过硬验证：把某历史日之后的全部数据删掉，那一天的 P/M/R 与四色灯<b>逐位不变</b>。（早期曾用“全样本分位”以求跨期可比，但那等于让历史基准偷看未来，已被推翻。）</p>
+  </div>
+
+  <div class="m-section" id="mformula" data-i18n="ms4">
+    <h2><span class="mn">04</span>M 值（烈度）的完整公式</h2>
+    <p>M 值刻画"潜在崩溃烈度"——理论根基是 Sornette 的渗流理论：崩溃烈度 = 泡沫高度 × 发酵时间。我们用过去 24 个月 P 值的"高位发酵积分"实现：</p>
+    <div class="formula"><span class="cm"># 累积能量 = 过去60个月 P 的“升蓄降放”积分（河流非水库）</span>
+energy = 0
+逐月遍历过去60个月:
+    energy += ΔP            <span class="cm">P 升则蓄、P 降则放</span>
+    energy = max(0, energy)    <span class="cm">地板归零：穿零即重置</span>
+M(t) = energy 末值         <span class="cm">无前视、无 2000 基准</span></div>
+    <p>直觉：P 在 0.5 以上停留得越久（发酵越充分）、曾经冲得越高（峰值越大），M 就越大。这解释了为什么 2007 年虽然股市 P 值不高，但因为在高位徘徊了很久，M 值并不低——装的"炸药"在高位慢慢积累了。</p>
+  </div>
+
+  <div class="m-section" id="rformula" data-i18n="ms5">
+    <h2><span class="mn">05</span>R 值（反身性）的完整公式</h2>
+    <p>R 值衡量"自我强化循环的活性"——故事里那个"石匠维修循环"。由三个可观测分量合成：</p>
+    <div class="formula"><span class="cm"># 反身性活性 = 三分量加权（各转 point-in-time 百分位）</span>
+活性 A = <span class="v">0.5</span>·新钱(双源) + <span class="v">0.25</span>·动量持续 + <span class="v">0.25</span>·突破存活
+
+  <span class="cm">新钱(双源) = 保证金6月增速 与 美联储Z.1家庭持股4季均值净流入，各取百分位后平均</span>
+  <span class="cm">动量持续   = 三大指数 现价/过去6月最高 的均值</span>
+  <span class="cm">突破存活   = 过去6月价格守在200日均线上方的时间比例</span>
+
+R(t) = A·[ 1 + <span class="v">0.4</span>·tanh(v_R) + <span class="v">0.4</span>·max(0,a_R) ]   <span class="cm">v_R/a_R 用6月窗口</span>
+R趋势(t) = R(t) − R(t − 6个月)    <span class="cm">已降为辅助 tilt，正负不作扳机</span></div>
+    <p>反身性是“最初自我强化、最终自我击败”的循环。但我们用 155 年历史检验后发现一件要紧事：<b>单看 R 趋势（或任何价格速度）转负去抓顶，精确率只有约 11%</b>，且分不清大泡沫顶与普通回调顶。所以 R 趋势<b>降为辅助、不再作离场扳机</b>。</p>
+    <h3>真正的离场扳机：四色确认灯</h3>
+    <p>可靠的“破裂确认”来自两个<b>状态</b>（而非变化率）的组合——这也是“临界慢化修正”的结论：</p>
+    <div class="formula"><span class="cm"># 四色破裂确认灯</span>
+广度 = 标普500/道指/纳指 中 收盘&gt;200日均线 的个数
+破位 = 广度 ≤ 1 且 <span class="c">连续2周</span>
+波动分位 = 三指数126日已实现波动的 point-in-time 周度排名
+
+  广度完好：波动&lt;90分位 → <span class="c">🟢 绿</span> 持有 ；≥90 → 🟡 黄 波动惊吓
+  广度破位：波动&lt;70 → 🟡 黄 早期破位 ；70–90 → 🟠 橙 破裂+承压 ；≥90 → <span style="color:var(--red-soft)">🔴 红</span> 暴力崩盘</div>
+    <p>它在顶部当天总是绿或黄（暴风雨前的平静），在崩盘途中才一格格升级——历史四顶里，它离绿通常在<b>顶后 2–6 周</b>。读法：<b>P/M/R 告诉你气球多紧，四色灯告诉你它什么时候真的开始漏气。</b></p>
+  </div>
+
+  <div class="m-section" id="weights" data-i18n="ms6">
+    <h2><span class="mn">06</span>指标清单、权重与数据来源</h2>
+    <p>P 值由以下 11 个指标按相对权重加权构成（计算时按当时在场的指标归一化）。权重的分配，反映了每个信号在历史顶部中的可靠程度——价格动能与市场广度最高，狂热信号（如 IPO）最低。所有数据均来自公开来源。</p>
+    <div style="overflow-x:auto">
+      <table class="param-table">
+        <thead><tr><th>指标</th><th>权重</th><th>危险方向</th><th>数据来源</th></tr></thead>
+        <tbody>
+          <tr><td><b>半导体偏离200日均线</b></td><td class="mono">14%</td><td>越高越危险</td><td>费城半导体指数（SOX）</td></tr>
+          <tr><td><b>纳指偏离200日均线</b></td><td class="mono">12%</td><td>越高越危险</td><td>纳斯达克综合指数</td></tr>
+          <tr><td><b>市场广度·SPY÷RSP</b></td><td class="mono">11%</td><td>越窄越危险</td><td>SPY(市值加权)÷RSP(等权)相对强弱</td></tr>
+          <tr><td><b>CAPE 周期估值</b></td><td class="mono">10%</td><td>越高越危险</td><td>Shiller CAPE（耶鲁）</td></tr>
+          <tr><td><b>市场集中度·前十大权重</b></td><td class="mono">8%</td><td>越高越危险</td><td>S&P 500 前十大权重（RBC）</td></tr>
+          <tr><td><b>保证金杠杆 / GDP</b></td><td class="mono">8%</td><td>越高越危险</td><td>FINRA 融资余额 ÷ 名义 GDP</td></tr>
+          <tr><td><b>VIX 自满累积</b></td><td class="mono">7%</td><td>越低越久越危险</td><td>CBOE VIX</td></tr>
+          <tr><td><b>AAII 散户情绪</b></td><td class="mono">7%</td><td>越贪婪越危险</td><td>AAII 多空调查</td></tr>
+          <tr><td><b>集中度泡沫溢价</b></td><td class="mono">5%</td><td>越高越危险</td><td>前十大权重 − 盈利占比</td></tr>
+          <tr><td><b>高收益债信用利差</b></td><td class="mono">5%</td><td>越低越危险</td><td>ICE BofA HY OAS</td></tr>
+          <tr><td><b>IPO 狂热度</b></td><td class="mono">3%</td><td>越高越危险</td><td>SEC 年度 IPO 数量</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:14px"><b>观测指标（不纳入加权）</b>：2 年 / 10 年美债收益率、美元指数、VVIX、半导体绝对点位。这些与泡沫顶部没有稳定的单调关系——例如利率，2000 年顶是高利率、2022 年顶是零利率，方向相反——所以只作背景观测。</p>
+  </div>
+
+  <div class="m-section" id="correction" data-i18n="ms7">
+    <h2><span class="mn">07</span>两个关键矫正：通胀与垄断</h2>
+    <h3>矫正一：通胀调整（用比率剔除名义膨胀）</h3>
+    <p>所有金额类指标都不能看名义值——否则今天的数字会因为通胀和经济增长而天然虚高。以保证金为例：今天名义 1.42 万亿，是 2000 年的 4.7 倍听起来很吓人，但<b>用"保证金 / GDP"比率（自动剔除通胀 + 经济增长）后，今天是 4.64%，2000 年是 2.93%，只是 1.59 倍</b>——这才是真实的杠杆强度。我们对所有金额类指标都做了这种处理。（IPO 用的是"数量"而非募资额，不受通胀影响。）</p>
+    <h3>矫正二：垄断修正（区分真护城河与估值泡沫）</h3>
+    <p>今天市场集中度 40%，远超 2000 年的 27%。但今天的巨头确实比 2000 年更能赚钱、护城河更深——所以不能简单地用"集中度高"去吓人。我们新增了一个指标<b>"集中度泡沫溢价" = 前十大权重% − 前十大盈利占比%</b>，专门区分"合理的集中"和"危险的泡沫"：</p>
+    <ul>
+      <li>2015 年：权重 19%、盈利占比 19% → 溢价 <b>0%</b>（完全健康，市值与基本面一致）</li>
+      <li>2000 年：权重 27%、盈利占比 22% → 溢价 <b>5%</b>（有泡沫）</li>
+      <li>今天：权重 40%、盈利占比 32% → 溢价 <b>8.7%</b>（史上最高的脱节）</li>
+    </ul>
+    <p>含义：今天 40% 的集中里，有 32% 是真实盈利支撑的（合理护城河），只有 8.7% 是纯粹的估值泡沫——这比单纯用 40% 去判断科学得多。</p>
+  </div>
+
+  <div class="m-section" id="validation" data-i18n="ms8">
+    <h2><span class="mn">08</span>历史校验：四种死法 + 四色灯</h2>
+    <p>我们把模型放回过去四个时点。如果它只是"下跌就报警"，那毫无价值。真正的考验，是它能否分辨"泡沫自己爆"和"被外力砸下来"——而结果，恰恰印证了每个理论的有效性。</p>
+
+    <div class="case-card">
+      <div class="cc-h"><span class="cc-yr">2000 年 3 月</span><span class="cc-lb">网络泡沫顶 · 基准</span></div>
+      <div class="case-pmr"><span>P <b style="color:var(--amber)">0.879</b></span><span>M <b style="color:var(--green)">0.644</b></span><span>R <b style="color:var(--green)">0.367</b></span><span>R趋势 <b style="color:var(--amber)">辅助 −0.05</b></span><span>闸门 <b style="color:var(--amber)">🟡黄</b></span></div>
+      <div class="cc-txt"><b>这是教科书级的参照案例。</b>一个纯粹的、教科书式的股市估值泡沫：半导体偏离均线 111%、CAPE 43、散户情绪极度贪婪。P 已到临界，而 R 趋势已经掉头向下——引擎在最高速运转的同时开始降温，正是"强弩之末"。结果：纳指崩盘 −78%。<b>它定义了"泡沫自爆"长什么样。</b></div>
+    </div>
+
+    <div class="case-card">
+      <div class="cc-h"><span class="cc-yr">2007 年 10 月</span><span class="cc-lb">信贷危机前</span></div>
+      <div class="case-pmr"><span>P <b style="color:var(--green)">0.746</b></span><span>M <b style="color:var(--green)">0.516</b></span><span>R <b style="color:var(--green)">0.541</b></span><span>R趋势 <b style="color:var(--amber)">辅助 −0.18</b></span><span>闸门 <b style="color:var(--green)">🟢绿</b></span></div>
+      <div class="cc-txt">P 只有 0.67，明显低于 2000。<b>为什么？因为 2008 的杠杆堆在房地产，不在股市</b>——股市保证金/GDP 当时只有 2.88%，甚至低于 2000 年。这正是明斯基理论的预言：危机不一定来自股市本身。模型如实反映了"这不是一个股市估值泡沫"，它在高位徘徊很久（所以 M 不算太低），最终被信贷系统崩溃这个<b>外力</b>推下山。结果：标普 −57%。<b>模型成功区分了"信贷危机外溢"与"股市自爆"。</b></div>
+    </div>
+
+    <div class="case-card">
+      <div class="cc-h"><span class="cc-yr">2020 年 2 月</span><span class="cc-lb">疫情前</span></div>
+      <div class="case-pmr"><span>P <b style="color:var(--amber)">0.943</b></span><span>M <b style="color:var(--green)">0.535</b></span><span>R <b style="color:var(--green)">0.699</b></span><span>R趋势 <b style="color:var(--green)">辅助 +0.22</b></span><span>闸门 <b style="color:var(--green)">🟢绿</b></span></div>
+      <div class="cc-txt">疫情前成长股估值其实已经不低（P=0.83），但 R 只有 0.70 且趋势停滞——引擎并不强。结果是一场<b>纯外部黑天鹅</b>（疫情）引发的暴跌 −34%，随后 V 型反弹。模型显示这不是一个"自我强化到极致"的泡沫顶，而是一次被外部冲击打断的过程。<b>这解释了为什么它跌得快、也回得快。</b></div>
+    </div>
+
+    <div class="case-card">
+      <div class="cc-h"><span class="cc-yr">2022 年 1 月</span><span class="cc-lb">加息周期顶</span></div>
+      <div class="case-pmr"><span>P <b style="color:var(--amber)">0.786</b></span><span>M <b style="color:var(--green)">0.297</b></span><span>R <b style="color:var(--green)">0.688</b></span><span>R趋势 <b style="color:var(--amber)">辅助 −0.09</b></span><span>闸门 <b style="color:var(--green)">🟢绿</b></span></div>
+      <div class="cc-txt">P=0.786 已到高位，但<b>关键是 R 趋势转负（辅助 −0.09）、四色灯始终未离绿</b>——加息预期让新资金涌入降温，维系繁荣的活水变弱。这是"高压力 + 引擎降速"的顶。结果：标普 −36%。<b>注意：这一轮四色灯全程从未亮红（最多到橙）——货币政策及时收紧、戳破泡沫，让它"慢撒气"而非"轰然爆炸"。这正说明：P/M/R 量的是压力高低，四色灯量的是破裂烈度，二者职责不同。</b></div>
+    </div>
+
+    <div class="case-card" style="border-color:var(--grid);background:linear-gradient(150deg,var(--panel2),var(--bg2))">
+      <div class="cc-h"><span class="cc-yr">今天</span><span class="cc-lb">AI 周期</span></div>
+      <div class="case-pmr"><span>P <b style="color:var(--red-soft)">0.963</b></span><span>M <b style="color:var(--green)">0.567</b></span><span>R <b style="color:var(--amber)">0.578</b></span><span>R趋势 <b style="color:var(--amber)">辅助 −0.31</b></span><span>闸门 <b style="color:var(--green)">🟢绿</b></span></div>
+      <div class="cc-txt">P=0.963，结构性压力<b>超过</b>了所有四个历史顶——今天的估值、集中度、杠杆、信用利差多数处在 point-in-time 的史上极端；M=0.567 同样是五时点最高，高位累积的“重量”前所未有。<b>但四色确认灯仍是绿的</b>（三大指数都在 200 日线上方、波动不高），破裂尚未发生。这就是“气球史上最紧、却还没漏气”。<b>结论：留在场内，但这是你整个验证集里最紧的气球。盯广度——指数一旦持续跌穿 200 日线、灯离绿，就是历史上“顶后 2–6 周”那个最早离场窗口。</b></div>
+    </div>
+
+    <p style="margin-top:18px">四次历史，四种不同的"死法"，模型都给出了与事实吻合的读数——这就是我们敢把它公开的底气。但请记住下一节的诚实边界。</p>
+  </div>
+
+  <div class="m-section" id="actionlayer" data-i18n="ms_act">
+    <h2><span class="mn">09</span>动作层：旗标 · 信贷扳机 · 命中率</h2>
+    <p>P/M/R 和四色灯回答“有多紧、何时破”。要把它变成纪律化的<b>动作</b>，需在闸门之上加两道保险，并用一个总开关决定何时介入。这一层经 1990–2026 全程走查式回测确认。</p>
+    <h3>总开关：泡沫旗标（过去 12 月 P 分位峰值 ≥85%）</h3>
+    <p>只有处在<b>估值泡沫</b>时才做空。旗标 = 过去 12 个月里 P 的扩展分位曾达到 ≥0.85。旗标不亮 → 这套做空策略完全不介入、按常规持仓；旗标亮 → 进入下方状态机，并一直携带到破裂确认。</p>
+    <h3>并行确认：HYOAS 信贷扳机（高于半年低位 ≥1.5pp）</h3>
+    <p>波动灯只看股价广度与波动，会漏掉“股市没事、信贷先裂”的危机。所以并行加一条信贷扳机：高收益债利差（HYOAS）> 前 6 个月低位 + 1.5 个百分点即触发。<b>确认信号 = 四色灯达 🟠/红 或 信贷扳机</b>——两路任一即确认。回测：2007 信贷危机纯股市灯几乎没反应（全程 🟢、旗标 OFF），全靠信贷扳机提前约 14 个月示警；2020 也由信贷扳机在灯转色前抢先确认；2000 由红灯、2022 由橙灯确认。<b>两路合并，30 年四次大崩盘一次没漏。</b></p>
+    <h3>防甩鞭：12 周快速止损</h3>
+    <p>不是每次破位都是真崩盘。真崩盘破位会持续 30–81 周；假摔通常 8 周内自愈。规则：确认触发后若 ≤12 周内闸门回 🟢，判为假破位、put 止损离场（旗标仍亮则等下次破位）。回测：此规则砍掉 6 次假摔（如 1999-10、2018-12、2025-04）里的 5 次，且零误杀真崩盘。</p>
+    <h3>诚实的命中率（别神化任何单一颜色）</h3>
+    <p>把闸门按月走查 1990–2026，统计“该颜色见顶后 18 个月内出现 ≥15% 回撤”的频率：</p>
+    <div style="overflow-x:auto"><table class="param-table"><thead><tr><th>峰值颜色</th><th>≥15% 回撤命中率</th><th>解读</th></tr></thead><tbody><tr><td>🟡 黄</td><td class="mono">26%</td><td>噪声居多——非绿月约 27 次，真正 ≥15% 回撤仅 7 次，约 3/4 是假</td></tr><tr><td>🟠 橙</td><td class="mono">47%</td><td>显著升级，接近一半兑现</td></tr><tr><td>🔴 红</td><td class="mono">71%</td><td>极罕见、极准——但代价是来得晚</td></tr></tbody></table></div>
+    <p>这正是“黄灯别单独行动、真正线索是 🟠/红或信贷扳机”的来源。代价是确认偏晚——确认到最深处的领先时间：2020 约 1 个月、2022 约 7 个月、2007 约 19 个月、2000 约 31 个月。<b>它在顶部之后、最深处之前确认——是确认工具，不是水晶球。</b></p>
+  </div>
+
+  <div class="m-section" id="limits" data-i18n="ms9">
+    <h2><span class="mn">10</span>诚实边界</h2>
+    <ul>
+      <li><b>无前视，已实证。</b>计算任何时点的所有数值，只用那一刻及之前的数据。删掉某历史日之后的全部数据，那天的 P/M/R 与四色灯逐位不变——历史数据只用于事后回顾校准，绝不偷看未来。</li>
+      <li><b>P 可以超过 1。</b>P 的底（能量位）是 0–1 百分位，但压力既极端又在加速时，动能放大会把 P 顶过 1.0（6 月峰值 1.029，今天 0.963）。这是特征。</li>
+      <li><b>价格动能不是择时神器。</b>155 年历史检验，单看速度转负抓顶精确率约 11%，分不清大顶与普通顶。所以判别力靠多维能量状态，R 趋势已降为辅助；真正的离场扳机是四色确认灯。</li>
+      <li><b>样本极少 + 冷启动。</b>泡沫级顶部样本本就少；早期（2000/2007）部分短历史指标因数据未积累而被诚实丢弃。2026 是真正的样本外考验。</li>
+      <li><b>R 最依赖判断、广度口径有取舍。</b>反身性用代理变量近似；涨跌家数广度数据 2020 后缺失，现已换用 <b>SPY/RSP 相对强弱</b>（市值加权÷等权，连续至今、纯客观），代价是 2000 年因 RSP 尚未上市而缺这一柱。</li>
+      <li><b>全部透明，欢迎质疑。</b>所有权重、参数、公式、数据来源都在这一页。<a href="message.html" style="color:var(--green);border-bottom:1px solid var(--grid)">“给我留言”</a>告诉我们需要更新的地方。</li>
+    </ul>
+    <div class="story-cta"><a href="index.html">← 返回首页，查看今天的实时读数</a></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <div class="foot-brand">
+        <img src="assets/logo.svg" alt="泡泡龙">
+        <div>泡泡龙 · 泡沫雷达<br><span style="color:var(--ink-faint);font-size:11px">作者 · 泡泡龙 Bub 🐉</span></div>
+      </div>
+      <div class="foot-links">
+        <a href="index.html" data-i18n="foot_home">首页</a>
+        <a href="index.html#academic" data-i18n="nav_academic">学术依据</a>
+        <a href="message.html" data-i18n="nav_message">给我留言</a>
+        <a href="mailto:yangqixia@163.com">yangqixia@163.com</a>
+      </div>
+    </div>
+    <p class="dis" data-i18n="foot_dis">本站为独立研究与教育项目，所有数据来自公开来源并经透明计算，仅供参考与交流，<b>不构成任何投资建议</b>。泡沫顶部的预测在本质上是不确定的，P/M/R 三个指标是辅助思考的工具，不是确定的预言。投资有风险，决策请独立判断、自负盈亏。</p>
+  </div>
+</footer>
+<script src="js/i18n.js"></script>
+<script src="js/float-btn.js"></script>
+</body>
+</html>
