@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest             # 借一台 GitHub 的云端 Linux 机器
     steps:
       - name: 取出你的仓库代码
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: 装 Python 3.12
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'       # 云端用稳定的 3.12（你本地是3.14，锚点已证明跨版本一致）
 
@@ -58,7 +58,7 @@ jobs:
 
       - name: 把报告存成"可下载附件"
         if: always()                   # 即使上面验算失败，也上传报告好让你看到漂移的数
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:                          # 让你在 GitHub 网页能看到/下载这份报告
           name: daily-report
           path: reports/*.txt
