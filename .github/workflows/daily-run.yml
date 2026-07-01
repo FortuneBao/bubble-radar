@@ -1,0 +1,65 @@
+name: Daily Bubble Radar Run          # 工作流名字（会显示在 GitHub 网页）
+
+on:                                    # —— 什么时候触发 ——
+  workflow_dispatch:                   # ① 手动：你在网页点按钮就能跑（第一次测试用）
+  schedule:
+    - cron: '0 5 * * *'                # ② 定时：每天 UTC 05:00 = 中国时间下午1点
+
+permissions:
+  contents: read                       # v1 只读仓库、不改任何东西（最安全）
+
+jobs:
+  run-engine:
+    runs-on: ubuntu-latest             # 借一台 GitHub 的云端 Linux 机器
+    steps:
+      - name: 取出你的仓库代码
+        uses: actions/checkout@v4
+
+      - name: 装 Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'       # 云端用稳定的 3.12（你本地是3.14，锚点已证明跨版本一致）
+
+      - name: 装依赖（照 requirements.txt）
+        run: pip install -r requirements.txt
+
+      - name: 校验 series.pkl 完整性
+        run: |                         # 跑之前先确认数据文件字节数没变（你的铁律）
+          SIZE=$(wc -c < calc/series.pkl)
+          echo "series.pkl = $SIZE 字节"
+          if [ "$SIZE" -ne 1197186 ]; then
+            echo "❌ series.pkl 字节数不对，应为 1197186"; exit 1
+          fi
+          echo "✅ series.pkl 完整"
+
+      - name: 跑引擎，把输出存成报告
+        run: |                         # 核心：跑引擎，屏幕输出同时存进 reports/
+          mkdir -p reports
+          python3 engine_pit.py | tee "reports/run_$(date -u +%Y-%m-%d).txt"
+
+      - name: 验算——断言五个历史锚点复现
+        run: |                         # 输出无人守=白验：缺任一锚点即红灯（真正的"验算"）
+          REPORT=$(ls reports/run_*.txt | head -1)
+          fail=0
+          check() {                     # $1=名 $2=P $3=M $4=R（允许数字间任意空白）
+            if grep -Eq "$2[[:space:]]+$3[[:space:]]+$4" "$REPORT"; then
+              echo "✅ $1: $2 $3 $4"
+            else
+              echo "❌ $1 锚点未复现，应含 $2 $3 $4"; fail=1
+            fi
+          }
+          check 2000顶 0.879 0.644 0.367
+          check 2007顶 0.746 0.516 0.541
+          check 2020顶 0.943 0.535 0.699
+          check 2022顶 0.786 0.297 0.688
+          check 今天   0.963 0.567 0.578
+          if [ "$fail" -ne 0 ]; then echo "🚨 锚点漂移，管线判失败"; exit 1; fi
+          echo "✅ 五锚点全部复现"
+
+      - name: 把报告存成"可下载附件"
+        if: always()                   # 即使上面验算失败，也上传报告好让你看到漂移的数
+        uses: actions/upload-artifact@v4
+        with:                          # 让你在 GitHub 网页能看到/下载这份报告
+          name: daily-report
+          path: reports/*.txt
+          retention-days: 30
