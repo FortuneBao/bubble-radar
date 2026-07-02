@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "when": "2026-07-02 21:25",
+  "overlap": 20,
+  "series": {
+    "_SP500": {
+      "pass": true,
+      "mode": "strict",
+      "convention": "raw收盘·round2",
+      "auto_adjust": false,
+      "postround": 2,
+      "max_abs_diff": 0.0,
+      "tol": 0.0050000010000000004
+    },
+    "_DJIA": {
+      "pass": true,
+      "mode": "strict",
+      "convention": "raw收盘·round2",
+      "auto_adjust": false,
+      "postround": 2,
+      "max_abs_diff": 0.0,
+      "tol": 0.0050000010000000004
+    },
+    "_NDQ": {
+      "pass": true,
+      "mode": "strict",
+      "convention": "raw收盘·round2",
+      "auto_adjust": false,
+      "postround": 2,
+      "max_abs_diff": 0.0,
+      "tol": 0.0050000010000000004
+    },
+    "VIX": {
+      "pass": true,
+      "mode": "strict",
+      "convention": "raw收盘·round2",
+      "auto_adjust": false,
+      "postround": 2,
+      "max_abs_diff": 0.0,
+      "tol": 0.0050000010000000004
+    },
+    "HYOAS": {
+      "pass": true,
+      "mode": "strict",
+      "convention": "raw收盘·round2",
+      "auto_adjust": false,
+      "postround": 2,
+      "max_abs_diff": 0.0,
+      "tol": 0.0050000010000000004
+    },
+    "NDQ_DEV": {
+      "pass": true,
+      "mode": "strict",
+      "convention": "raw收盘·SMA200含当日·全精度",
+      "auto_adjust": false,
+      "postround": null,
+      "max_abs_diff": 0.007738022419358179,
+      "tol": 0.020000001
+    },
+    "SOX_DEV": {
+      "pass": true,
+      "mode": "clean_window",
+      "convention": "raw收盘·SMA200含当日·全精度",
+      "auto_adjust": false,
+      "postround": null,
+      "max_abs_diff": 0.050640285458282266,
+      "tol": 0.120000001,
+      "event_note": "建库摄入的investing数据含幽灵周末行(pkl实存2025-12-06/2024-05-18两根周六行),2025-12-08起存量尾段200日均线受染(dev偏低0.1~0.35pp,3位小数口径无感,冻结历史不改);官方/共识收盘无分歧;换源FRED NASDAQSOX",
+      "clean_before": "2025-12-01"
+    },
+    "BREADTH": {
+      "pass": true,
+      "mode": "strict",
+      "convention": "raw收盘比值·全精度",
+      "auto_adjust": false,
+      "postround": null,
+      "max_abs_diff": 0.007554302978472257,
+      "tol": 0.020000001
+    }
+  }
+}

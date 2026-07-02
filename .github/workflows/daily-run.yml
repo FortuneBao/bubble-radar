@@ -23,14 +23,17 @@ jobs:
       - name: 装依赖（照 requirements.txt）
         run: pip install -r requirements.txt
 
-      - name: 校验 series.pkl 完整性
-        run: |                         # 跑之前先确认数据文件字节数没变（你的铁律）
-          SIZE=$(wc -c < calc/series.pkl)
-          echo "series.pkl = $SIZE 字节"
-          if [ "$SIZE" -ne 1197186 ]; then
-            echo "❌ series.pkl 字节数不对，应为 1197186"; exit 1
-          fi
-          echo "✅ series.pkl 完整"
+      - name: 校验 series.pkl 完整性(铁律v2·台账sha256)
+        run: |
+          python3 - << 'PYCHK'
+          import json, hashlib
+          led = json.load(open('calc/series_ledger.json'))
+          raw = open('calc/series.pkl', 'rb').read()
+          h = hashlib.sha256(raw).hexdigest()
+          if len(raw) != led['bytes'] or h != led['sha256']:
+              raise SystemExit(f"❌ pkl与台账不符: bytes {len(raw)} vs {led['bytes']} / sha {h[:12]} vs {led['sha256'][:12]}")
+          print(f"✅ series.pkl 与台账一致({len(raw)} 字节, sha {h[:12]}…)")
+          PYCHK
 
       - name: 跑引擎，把输出存成报告
         run: |                         # 核心：跑引擎，屏幕输出同时存进 reports/

@@ -7,7 +7,7 @@ PIT（point-in-time, 零前视）量化美股泡沫压力监测 + 三语(zh/en/k
 
 ## 1. 不可破的原则（违反即作废）
 - PIT 零前视: 每个值(P/M/R+四色闸门)只用 ≤评估日 的数据；Fenwick 扩展窗分位；历史数据只作回顾校准。
-- series.pkl = 1,197,186 字节、16 键、含手工锚点 → 只加载、永不脚本重建。开工先 `wc -c calc/series.pkl`。
+- series.pkl(16键·含手工锚点)只能被 update_series.py 合法追加:--qualify资格考试全科PASS才准--append;--append含评估日红线闸(只追date>PCTX_END的严格未来行,≤评估日的回填统一由⑥C推进仪式在重冻结锚点前吸收);append-only+前缀相等断言+本地备份(calc/backups/,已gitignore);追加后五锚点必须复现且computed.json逐字节不变(白名单机制保留作⑥C期兜底:仅indicators的value/value_date/strength可动、3位小数官方口径全体不变,越界自动还原)。完整性以 calc/series_ledger.json 台账(bytes+sha256)为准;开工核对=pkl与台账sha一致。git历史为另一重备份。永不脚本重建。
 - 引擎评估日常量 PCTX_END 必须 = data.json 的 updated。
 - 红线: LLM 永不进核心信号计算（会引入前视+不可复现）。
 
@@ -72,7 +72,8 @@ Netlify现状(2026-07-01): 当前为手动拖拽部署,站点 bubbleradar0622.ne
   - 已完成(2026-07-02):④Netlify v03上线=bubbleradarv03.netlify.app(publish=site;未改site/跳过构建含首建防误跳);发布模式A=锁定发布已开启,push只产生待发布版本,老板点Publish deploy才上线。老站bubbleradar0622暂留待退役。
   - 已完成(2026-07-02):⑤A每值时间戳=三口径决定论日期进数据链(观测=数据日透传dates表/指标墙=value_date即各底层序列≤评估日最后数据日/P·M·R·灯=评估日updated)+页头北京时间墙钟site/meta.json(仅--final写,唯一非决定论输出,豁免一切字节比对)。改动=assemble.py透传+保险丝两条、render.js三语标签渲染、site.css四类小灰字、index.html占位符措辞;engine/export/multilingual/fetch零改动。已裁决:C1粒度+A诚实口径+历史区不标。注:集中度两项显示"数据至2025-07-01"系PIT诚实口径(pkl内2026-07-01点晚于评估日不可用),评估日推进(⑥)后自动刷新。
   - 已完成(2026-07-02):⑤B云端日更上线=新工作流fetch-daily.yml(UTC09:30=北京17:30,周二~六覆盖美股周一~五收盘:抓取→git diff检测→仅数据真变才装配三语+commit+push;推送产生Netlify待发布版本,上线仍由老板点Publish)。fetch_observations.py两项加固:只取已收盘bar(数据日<纽约今天,防DXY等盘中临时值)+值与日期均未变不改写文件(updated=数据最后真实落地日,云端免空提交)。哨兵daily-run.yml仅删upload-artifact步骤(报告留job日志90天),其余零改动。总设计师沙盒:双YAML解析过+离线测试台10断言全过。
-  - 待做:⑥核心11指标自动更新=series.pkl追加保锚点+评估日推进(PCTX_END与TODAY_ANCHOR同步)+AAII录入派生(输入Bull/Neutral/Bear三原始数派生spread与bull比例两序列)——最难,专门一轮。
+  - 已完成(2026-07-03):⑥A series.pkl合法追加器上线=update_series.py两段式(--qualify重算存量末20点选口径全科PASS写calc/qualify_report.json;--append持报告动刀:备份→评估日红线闸→append-only+前缀相等断言→子进程五锚点保险丝→computed逐字节不变核验→写sha256台账calc/series_ledger.json,任一失败自动还原)。8条日频自动层:_SP500/_DJIA/_NDQ/VIX=yf收盘round2,HYOAS=FRED原值,NDQ_DEV=对200日SMA偏离%(yf ^IXIC),SOX_DEV=对200日SMA偏离%(源=FRED官方NASDAQSOX),BREADTH=SPY÷RSP;dev/ratio容差=逐日价格当量制(默认≤0.02;SOX_DEV因清洁段建自investing 1位小数收盘的量化差放宽至≤0.12,对幽灵行污染仍余约80倍判别力),资格失败输出逐候选原因;yf/FRED抓取带缓存与瞬断重试。事件备案(KNOWN_EVENTS):建库摄入的investing数据含幽灵周末行(pkl的SOX_DEV实存2025-12-06与2024-05-18两根周六行),2025-12-08起存量尾段200日均线受染、dev偏低0.1~0.35pp——3位小数口径无感,冻结历史不改;FRED官方终审:2025-12-08收盘=7375.2=yf,真实收盘无分歧;资格考试经清洁窗通道(clean_before=2025-12-01,实测0.0506/0.12)桥接,干净新点积满20个后自动回归严格,expiry=2026-08-31。评估日红线:首弹曾被五锚点保险丝正确拦截并自动回滚(HYOAS回填06-26值2.83把M推动0.567→0.566),遂立红线闸,该回填与M漂移由⑥C仪式吸收。铁律v2生效:双工作流完整性校验切台账sha256;沙盒测试台20+12+5断言全过。考古附注:_DJIA的2012年代段含周末行、HYOAS老段为月末频——冻结无碍、锚点复现、不动。
+  - 待做:⑥C评估日推进仪式(周五口径:吸收≤评估日回填→算新周五P/M/R→老板批准→PCTX_END与TODAY_ANCHOR同步冻结→导出装配上站;首推2026-07-03,周六北京执行,将吸收HYOAS 06-26回填与M漂移) ⑥B AAII周度录入器(带日历卫兵:拒周末行/重复日) ⑥D整链云端周跑 ⑥E数据源加固(FRED官方镜像双源交叉+付费API选型:Tiingo/Polygon/EODHD,预算已批)。低频6条维持人工。
   - 观测值(2yr/10yr/DXY/VVIX/SOX)数据源已定:FRED家族(DGS2/DGS10走CSV/API) + yfinance家族(DX-Y.NYB/^VVIX/^SOX);AAII手动周更(官网反爬,输入=Bull/Neutral/Bear三个原始数,脚本派生spread和bull比例两序列);observations存独立文件不进series.pkl。
 
 ## 12. 周更管线SOP(⑤B定稿 2026-07-02)
