@@ -352,3 +352,9 @@ footer{border-top:1px solid var(--grid-dim);margin-top:50px;padding:32px 0 40px;
 .rt-p2{ border-left:3px solid var(--amber); }
 .rt-ph{ font:800 14px/1 var(--mono); margin-bottom:9px; color:var(--ink); }
 .rt-txt{ font-size:13.5px; color:var(--ink-dim); line-height:1.7; }
+
+/* —— 数值时间戳标注(⑤A · 2026-07-02):三口径小灰字(数据至/数据日/评估日) —— */
+.icard-date{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin:2px 0 8px}
+.ocard-date{font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin:2px 0 6px}
+.pmr-date{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);margin-top:7px}
+.gate-date{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);margin-top:7px}

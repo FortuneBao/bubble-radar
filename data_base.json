@@ -36,6 +36,7 @@
       "desc": "半导体板块价格高于年线的幅度,越高越脆弱",
       "value": 54.81,
       "unit": "%",
+      "value_date": "2026-06-26",
       "weight": 14,
       "strength": 98.9,
       "direction": "越高越危险",
@@ -47,6 +48,7 @@
       "desc": "纳斯达克价格高于年线的幅度",
       "value": 7.08,
       "unit": "%",
+      "value_date": "2026-06-26",
       "weight": 12,
       "strength": 52.8,
       "direction": "越高越危险",
@@ -58,6 +60,7 @@
       "desc": "市值加权SPY÷等权RSP,比值越高=涨幅越集中在少数巨头=广度越窄",
       "value": 3.47,
       "unit": "",
+      "value_date": "2026-06-26",
       "weight": 11,
       "strength": 97.2,
       "direction": "越窄越危险",
@@ -69,6 +72,7 @@
       "desc": "席勒市盈率,扣除通胀的十年平均估值",
       "value": 41.02,
       "unit": "",
+      "value_date": "2026-06-01",
       "weight": 10,
       "strength": 99.0,
       "direction": "越高越危险",
@@ -80,6 +84,7 @@
       "desc": "前十大公司占标普500权重,越集中越脆弱",
       "value": 40.0,
       "unit": "%",
+      "value_date": "2025-07-01",
       "weight": 8,
       "strength": 100.0,
       "direction": "越高越危险",
@@ -91,6 +96,7 @@
       "desc": "融资余额占GDP比重,剔除通胀和增长后的真实杠杆",
       "value": 4.64,
       "unit": "%",
+      "value_date": "2026-05-01",
       "weight": 8,
       "strength": 100.0,
       "direction": "越高越危险",
@@ -102,6 +108,7 @@
       "desc": "恐慌指数,越低越久说明市场越自满,压力越积越多",
       "value": 18.41,
       "unit": "",
+      "value_date": "2026-06-26",
       "weight": 7,
       "strength": 45.6,
       "direction": "越低越久越危险",
@@ -113,6 +120,7 @@
       "desc": "看涨减看跌,越贪婪越接近顶",
       "value": 8.8,
       "unit": "%",
+      "value_date": "2026-06-25",
       "weight": 7,
       "strength": 77.2,
       "direction": "越贪婪越危险",
@@ -124,6 +132,7 @@
       "desc": "前十大权重减盈利占比,区分真护城河与估值泡沫",
       "value": 8.7,
       "unit": "%",
+      "value_date": "2025-07-01",
       "weight": 5,
       "strength": 100.0,
       "direction": "越高越危险",
@@ -135,6 +144,7 @@
       "desc": "垃圾债与国债利差,越低说明对风险定价越乐观",
       "value": 2.78,
       "unit": "%",
+      "value_date": "2026-06-25",
       "weight": 5,
       "strength": 95.6,
       "direction": "越低越危险",
@@ -146,6 +156,7 @@
       "desc": "年度IPO数量,越多说明套现狂潮",
       "value": 374.0,
       "unit": "家/年",
+      "value_date": "2025-07-01",
       "weight": 3,
       "strength": 88.0,
       "direction": "越高越危险",
@@ -157,31 +168,36 @@
       "name": "2年期美债收益率",
       "desc": "短端利率,2000顶6.55% vs 2022顶0.77%,与顶部无单调关系",
       "value": 4.14,
-      "unit": "%"
+      "unit": "%",
+      "value_date": "2026-06-30"
     },
     {
       "name": "10年期美债收益率",
       "desc": "长端利率,宏观背景",
       "value": 4.44,
-      "unit": "%"
+      "unit": "%",
+      "value_date": "2026-06-30"
     },
     {
       "name": "美元指数DXY",
       "desc": "美元强弱,资金流向背景",
       "value": 101.23,
-      "unit": ""
+      "unit": "",
+      "value_date": "2026-07-02"
     },
     {
       "name": "VVIX·波动率的波动率",
       "desc": "VIX自身的波动,2006年才有数据",
       "value": 89.04,
-      "unit": ""
+      "unit": "",
+      "value_date": "2026-07-01"
     },
     {
       "name": "费城半导体指数·点位",
       "desc": "半导体绝对点位,信息已由偏离均线纳入",
       "value": 13353.28,
-      "unit": ""
+      "unit": "",
+      "value_date": "2026-07-01"
     }
   ],
   "history": [

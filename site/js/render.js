@@ -9,7 +9,8 @@
   // ---------- 渲染文案表（三语）----------
   var RT={
     zh:{
-      status:'雷达运行中 · 数据更新于 ',
+      status:'雷达运行中 · 评估日 ',
+      gen:' · 页面生成 ', tzbj:'(北京时间)', vd:'数据至 ', od:'数据日 ', ed:'评估日 ',
       pP_tag:'压力 · Pressure', pP_let:'P · 气球现在多紧',
       pM_tag:'烈度 · Magnitude', pM_let:'M · 高位累积的重量', pM_phase:'累积能量 ',
       pR_tag:'反身性 · Reflexivity', pR_let:'R · 还有没有人在吹', pR_pre:'活性 ', pR_suf:'（辅助）',
@@ -30,12 +31,13 @@
       rp:{'2000':'2000 网络泡沫顶','2007':'2007 信贷危机前','2020':'2020 疫情前','2022':'2022 加息周期顶'}
     },
     en:{
-      status:'Radar live · data updated ',
+      status:'Radar live · eval date ',
+      gen:' · generated ', tzbj:' (Beijing time)', vd:'data thru ', od:'as of ', ed:'eval date ',
       pP_tag:'Pressure', pP_let:'P · how tight the balloon is',
       pM_tag:'Magnitude', pM_let:'M · the weight piled up high', pM_phase:'Accumulated energy ',
       pR_tag:'Reflexivity', pR_let:'R · is anyone still blowing', pR_pre:'Activity ', pR_suf:' (auxiliary)',
       gateCap:'Rupture-confirmation light · Gate', gateActLbl:'Current action: ',
-      actHead:'Action state machine · two-tier (flag \u00D7 light/credit)', actFlagOn:'Bubble flag ON · P {P}th pct', actFlagOff:'Bubble flag OFF', actCredOn:'Credit trigger FIRED', actCredOff:'Credit trigger off',
+      actHead:'Action state machine · two-tier (flag × light/credit)', actFlagOn:'Bubble flag ON · P {P}th pct', actFlagOff:'Bubble flag OFF', actCredOn:'Credit trigger FIRED', actCredOff:'Credit trigger off',
       gl_green:'Trend intact', gl_yellow:'Caution', gl_orange:'Rupture + stress', gl_red:'Violent crash',
       ga_green:'Hold as normal', ga_yellow:'Begin trimming', ga_orange:'Trim faster', ga_red:'Exit',
       lg_green:'Trend intact', lg_yellow:'Caution / early break', lg_orange:'Rupture + stress', lg_red:'Violent crash',
@@ -51,12 +53,13 @@
       rp:{'2000':'2000 dot-com top','2007':'2007 pre-credit-crisis','2020':'2020 pre-COVID','2022':'2022 rate-hike top'}
     },
     ko:{
-      status:'레이더 가동 중 · 데이터 갱신 ',
+      status:'레이더 가동 중 · 평가일 ',
+      gen:' · 페이지 생성 ', tzbj:' (베이징 시간)', vd:'데이터 기준 ', od:'데이터 일자 ', ed:'평가일 ',
       pP_tag:'압력 · Pressure', pP_let:'P · 풍선이 얼마나 팽팽한가',
       pM_tag:'강도 · Magnitude', pM_let:'M · 고점에 쌓인 무게', pM_phase:'누적 에너지 ',
       pR_tag:'재귀성 · Reflexivity', pR_let:'R · 아직도 부는 사람이 있는가', pR_pre:'활성 ', pR_suf:' (보조)',
       gateCap:'붕괴 확인등 · Gate', gateActLbl:'현재 행동: ',
-      actHead:'액션 상태기계 · 2단 (깃발 \u00D7 등/신용)', actFlagOn:'버블 깃발 ON · P {P}백분위', actFlagOff:'버블 깃발 OFF', actCredOn:'신용 방아쇠 발동', actCredOff:'신용 방아쇠 미발동',
+      actHead:'액션 상태기계 · 2단 (깃발 × 등/신용)', actFlagOn:'버블 깃발 ON · P {P}백분위', actFlagOff:'버블 깃발 OFF', actCredOn:'신용 방아쇠 발동', actCredOff:'신용 방아쇠 미발동',
       gl_green:'추세 양호', gl_yellow:'경계', gl_orange:'붕괴+압박', gl_red:'격렬한 폭락',
       ga_green:'정상 보유', ga_yellow:'비중 축소 시작', ga_orange:'축소 가속', ga_red:'전량 정리',
       lg_green:'추세 양호', lg_yellow:'경계/초기 이탈', lg_orange:'붕괴+압박', lg_red:'격렬한 폭락',
@@ -78,8 +81,15 @@
   function strLabel(s){ if(s>=95)return t('s_ext'); if(s>=80)return t('s_vhigh'); if(s>=60)return t('s_high'); if(s>=35)return t('s_mid'); return t('s_mild'); }
   function fmtVal(v,u){ if(v===null||v===undefined)return '<span class="na">'+t('na')+'</span>'; return v+'<span class="u">'+(u||'')+'</span>'; }
 
+  function setStatus(){
+    var stEl=document.getElementById('status-txt'); if(!stEl||!window.__DATA)return;
+    var s=t('status')+window.__DATA.updated;
+    if(window.__META&&window.__META.generated_at) s+=t('gen')+window.__META.generated_at+t('tzbj');
+    stEl.textContent=s;
+  }
+
   function render(d){
-    var stEl=document.getElementById('status-txt'); if(stEl) stEl.textContent=t('status')+d.updated;
+    setStatus();
     var trArrow={up:'↑',down:'↓',flat:'→'};
     var barcol={P:'linear-gradient(90deg,var(--amber),var(--red))',M:'linear-gradient(90deg,var(--green-deep),var(--amber))',R:'linear-gradient(90deg,var(--green),var(--green-deep))'};
     var pmr=[
@@ -92,7 +102,7 @@
       return '<div class="pmr-card '+(c.lead?'lead':'')+'">'
         +'<div class="pmr-tag">'+c.tag+'</div><div class="pmr-letter '+c.cls+'">'+c.letter+'</div>'
         +'<div class="pmr-val">'+c.val+trHtml+'</div><div class="pmr-phase">'+c.phase+'</div>'
-        +'<div class="pmr-desc">'+c.desc+'</div><div class="pmr-bar"><i style="width:'+c.bar+'%;background:'+barcol[c.cls]+'"></i></div></div>';
+        +'<div class="pmr-desc">'+c.desc+'</div><div class="pmr-date">'+t('ed')+d.updated+'</div><div class="pmr-bar"><i style="width:'+c.bar+'%;background:'+barcol[c.cls]+'"></i></div></div>';
     }).join('');
 
     var g=GATE[d.gate.color];
@@ -101,7 +111,8 @@
       '<div class="gate-left"><div class="gate-cap">'+t('gateCap')+'</div><div class="gate-lights">'+lights+'</div></div>'
       +'<div class="gate-right"><div class="gate-now" style="color:'+g.c+'">● '+t('gl_'+d.gate.color)+'</div>'
       +'<div class="gate-act">'+t('gateActLbl')+'<b style="color:'+g.c+'">'+t('ga_'+d.gate.color)+'</b></div>'
-      +'<div class="gate-desc">'+tx(d.gate.desc)+'</div></div>';
+      +'<div class="gate-desc">'+tx(d.gate.desc)+'</div>'
+      +'<div class="gate-date">'+t('ed')+d.updated+'</div></div>';
 
     // ---- 动作状态机 live 读数 (新引擎: 旗标 × 灯/信贷) ----
     var A=d.action;
@@ -132,7 +143,9 @@
     document.getElementById('obs-grid').innerHTML=d.observations.map(function(o){
       var nm=tx(o.name), ds=tx(o.desc);
       var tip='<span class="help">?<span class="tip"><b>'+nm+'</b><br>'+ds+'<br><br>'+t('tipHint')+'</span></span>';
-      return '<div class="ocard"><div class="ocard-name">'+nm+tip+'</div><div class="ocard-val">'+fmtVal(o.value,o.unit)+'</div><div class="ocard-desc">'+ds+'</div></div>';
+      return '<div class="ocard"><div class="ocard-name">'+nm+tip+'</div><div class="ocard-val">'+fmtVal(o.value,o.unit)+'</div>'
+        +(o.value_date?'<div class="ocard-date">'+t('od')+o.value_date+'</div>':'')
+        +'<div class="ocard-desc">'+ds+'</div></div>';
     }).join('');
 
     document.getElementById('hist-body').innerHTML=d.history.map(function(h){
@@ -161,7 +174,9 @@
     var tip='<span class="help">?<span class="tip"><b>'+nm+'</b><br>'+ds+'<br><br>'+t('tipHint')+'</span></span>';
     return '<div class="icard '+(isCore?'core':'')+'">'
       +'<div class="icard-top"><div class="icard-name">'+nm+tip+'</div><div class="icard-w">'+t('weight')+i.weight+'%</div></div>'
-      +'<div class="icard-val '+(i.value===null?'na':'')+'">'+fmtVal(i.value,i.unit)+'</div><div class="icard-desc">'+ds+'</div>'
+      +'<div class="icard-val '+(i.value===null?'na':'')+'">'+fmtVal(i.value,i.unit)+'</div>'
+      +(i.value_date?'<div class="icard-date">'+t('vd')+i.value_date+'</div>':'')
+      +'<div class="icard-desc">'+ds+'</div>'
       +(na?'<div class="strength"><i style="width:0"></i></div><div class="strength-lbl"><span>'+dir+'</span><span class="na">'+t('naDrop')+'</span></div>'
           :'<div class="strength"><i data-w="'+Math.min(s,100)+'%" style="width:0;background:'+strColor(s)+'"></i></div><div class="strength-lbl"><span>'+dir+'</span><span>'+t('pctPre')+s+t('pctSuf')+strLabel(s)+'</span></div>')
       +'</div>';
@@ -241,4 +256,8 @@
   fetch('data.json')
     .then(function(r){ if(!r.ok) throw new Error('data.json'); return r.json(); })
     .then(function(d){ window.__DATA=d; window.renderData(); }).catch(showErr);
+  fetch('meta.json')
+    .then(function(r){ return r.ok? r.json() : null; })
+    .then(function(m){ window.__META=m; setStatus(); })
+    .catch(function(){});
 })();

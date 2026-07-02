@@ -5,7 +5,8 @@ assemble.py — 装配器第二环:合并三输入 → data_base.json
 输入:computed.json(引擎数字,原始精度) + content_zh.json(人工文案)
      + observations.json(观测值)
 输出:默认写 data_base_assembled.json(验收用);
-     传 --final 才覆盖 data_base.json(人工放行动作)。
+     传 --final 才覆盖 data_base.json(人工放行动作),
+     且 --final 时顺手写 site/meta.json(北京时间墙钟,见下)。
 
 格式对齐(全在本文件,引擎/导出器不管排版):
   emoji→词(🟢green/🟡yellow/🟠orange/🔴red)
@@ -13,11 +14,21 @@ assemble.py — 装配器第二环:合并三输入 → data_base.json
   phase_desc 空格:'旗标ON但'→'旗标 ON 但','旗标ON'→'旗标 ON'
   序列化:json indent=2 · ensure_ascii=False · 无尾换行(与现有 data_base 逐字节同风格)
 
+时间戳标注(⑤A,2026-07-02 裁决 C1+A):
+  指标墙:透传 computed 的 value_date(各指标底层序列 ≤评估日 的最后数据日,决定论)
+  观测:透传 observations.json 的 dates(数据日;回退时为旧值日期,决定论)
+  P/M/R/灯:前端直接用 updated(评估日),数据侧无需新增
+  墙钟:--final 时写 site/meta.json{generated_at 北京时间}——唯一非决定论输出,
+       明确豁免一切字节比对;data_base.json 与 site/data.json 保持决定论不变。
+
 内建保险丝:computed 必须带 anchors_verified=True;结构自检(11指标/权重和90/
-lights20长度20/episodes月数=四色之和/文案键齐全),任一不符 → 不写文件、退出码 1。
+每指标带 value_date/lights20长度20/episodes月数=四色之和/文案键齐全/
+观测 values 与 dates 键齐全),任一不符 → 不写文件、退出码 1。
 运行: .venv/bin/python3 assemble.py [--final]
 """
 import json, os, sys
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 _BASE = os.path.dirname(os.path.abspath(__file__))
 W = {'🟢': 'green', '🟡': 'yellow', '🟠': 'orange', '🔴': 'red'}
@@ -59,6 +70,8 @@ def main():
             die(f"content_zh 缺指标文案: {i['key']}")
         if i['strength'] is None:
             die(f"指标 {i['key']} strength 为 None(冷启动/陈旧?)")
+        if not i.get('value_date'):
+            die(f"指标 {i['key']} 缺 value_date(导出器应已提取)")
     for h in C['history']:
         if h['id'] not in T['history']:
             die(f"content_zh 缺 history 文案: {h['id']}")
@@ -68,8 +81,10 @@ def main():
     for o in T['observations']:
         if o['key'] not in O['values']:
             die(f"observations.json 缺观测值: {o['key']}")
+        if o['key'] not in O.get('dates', {}):
+            die(f"observations.json 缺数据日: {o['key']}(dates 表应含全部五键)")
 
-    # ── 组装(键序严格对齐现有 data_base.json)──
+    # ── 组装(键序严格对齐现有 data_base.json;value_date 紧跟 unit)──
     out = {
         'updated': C['updated'],
         'P': {'value': round(C['P']['value'], 3), 'phase': T['P']['phase'], 'desc': T['P']['desc']},
@@ -89,13 +104,15 @@ def main():
                         'desc': T['indicators'][i['key']]['desc'],
                         'value': round(i['value'], 2),
                         'unit': T['indicators'][i['key']]['unit'],
+                        'value_date': i['value_date'],
                         'weight': i['weight'],
                         'strength': round(i['strength'], 1),
                         'direction': T['indicators'][i['key']]['direction'],
                         'tier': T['indicators'][i['key']]['tier']}
                        for i in C['indicators']],
         'observations': [{'name': o['name'], 'desc': o['desc'],
-                          'value': _obs_val(O['values'][o['key']]), 'unit': o['unit']}
+                          'value': _obs_val(O['values'][o['key']]), 'unit': o['unit'],
+                          'value_date': O['dates'][o['key']]}
                          for o in T['observations']],
         'history': [{'name': T['history'][h['id']]['name'],
                      'label': T['history'][h['id']]['label'],
@@ -129,6 +146,14 @@ def main():
     print(f"✓ 装配完成 → {os.path.basename(out_path)}"
           f"(updated={out['updated']}, P={out['P']['value']}, M={out['M']['value']}, "
           f"R={out['R']['value']}, 灯={out['gate']['color']}, phase={out['action']['phase']})")
+
+    if final:
+        meta = {'generated_at': datetime.now(ZoneInfo('Asia/Shanghai')).strftime('%Y-%m-%d %H:%M'),
+                'tz': 'Asia/Shanghai'}
+        meta_path = os.path.join(_BASE, 'site', 'meta.json')
+        with open(meta_path, 'w', encoding='utf-8') as f:
+            f.write(json.dumps(meta, ensure_ascii=False, indent=2))
+        print(f"✓ site/meta.json 已写(generated_at={meta['generated_at']} 北京时间;墙钟文件,豁免字节比对)")
 
 if __name__ == '__main__':
     main()

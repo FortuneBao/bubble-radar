@@ -76,6 +76,7 @@
       },
       "value": 54.81,
       "unit": "%",
+      "value_date": "2026-06-26",
       "weight": 14,
       "strength": 98.9,
       "direction": {
@@ -99,6 +100,7 @@
       },
       "value": 7.08,
       "unit": "%",
+      "value_date": "2026-06-26",
       "weight": 12,
       "strength": 52.8,
       "direction": {
@@ -122,6 +124,7 @@
       },
       "value": 3.47,
       "unit": "",
+      "value_date": "2026-06-26",
       "weight": 11,
       "strength": 97.2,
       "direction": {
@@ -145,6 +148,7 @@
       },
       "value": 41.02,
       "unit": "",
+      "value_date": "2026-06-01",
       "weight": 10,
       "strength": 99.0,
       "direction": {
@@ -168,6 +172,7 @@
       },
       "value": 40.0,
       "unit": "%",
+      "value_date": "2025-07-01",
       "weight": 8,
       "strength": 100.0,
       "direction": {
@@ -191,6 +196,7 @@
       },
       "value": 4.64,
       "unit": "%",
+      "value_date": "2026-05-01",
       "weight": 8,
       "strength": 100.0,
       "direction": {
@@ -214,6 +220,7 @@
       },
       "value": 18.41,
       "unit": "",
+      "value_date": "2026-06-26",
       "weight": 7,
       "strength": 45.6,
       "direction": {
@@ -237,6 +244,7 @@
       },
       "value": 8.8,
       "unit": "%",
+      "value_date": "2026-06-25",
       "weight": 7,
       "strength": 77.2,
       "direction": {
@@ -260,6 +268,7 @@
       },
       "value": 8.7,
       "unit": "%",
+      "value_date": "2025-07-01",
       "weight": 5,
       "strength": 100.0,
       "direction": {
@@ -283,6 +292,7 @@
       },
       "value": 2.78,
       "unit": "%",
+      "value_date": "2026-06-25",
       "weight": 5,
       "strength": 95.6,
       "direction": {
@@ -306,6 +316,7 @@
       },
       "value": 374.0,
       "unit": "家/年",
+      "value_date": "2025-07-01",
       "weight": 3,
       "strength": 88.0,
       "direction": {
@@ -329,7 +340,8 @@
         "ko": "단기 금리; 2000년 천장 6.55% vs 2022년 천장 0.77% — 천장과 단조 관계 없음"
       },
       "value": 4.14,
-      "unit": "%"
+      "unit": "%",
+      "value_date": "2026-06-30"
     },
     {
       "name": {
@@ -343,7 +355,8 @@
         "ko": "장기 금리; 거시 배경"
       },
       "value": 4.44,
-      "unit": "%"
+      "unit": "%",
+      "value_date": "2026-06-30"
     },
     {
       "name": {
@@ -357,7 +370,8 @@
         "ko": "달러 강약; 자금 흐름 배경"
       },
       "value": 101.23,
-      "unit": ""
+      "unit": "",
+      "value_date": "2026-07-02"
     },
     {
       "name": {
@@ -371,7 +385,8 @@
         "ko": "VIX 자체의 변동성; 2006년부터 데이터"
       },
       "value": 89.04,
-      "unit": ""
+      "unit": "",
+      "value_date": "2026-07-01"
     },
     {
       "name": {
@@ -385,7 +400,8 @@
         "ko": "반도체 절대 지수; 그 정보는 이미 이동평균 이격 지표에 반영됨"
       },
       "value": 13353.28,
-      "unit": ""
+      "unit": "",
+      "value_date": "2026-07-01"
     }
   ],
   "history": [
