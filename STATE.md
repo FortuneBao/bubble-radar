@@ -66,5 +66,6 @@ Netlify现状(2026-07-01): 当前为手动拖拽部署,站点 bubbleradar0622.ne
 - v2(进行中,路线B):目标=让引擎自动吐出结构化数据(装配器),打通"引擎→data_base.json→网站"全自动+人工放行。
   - 已完成:摸清链路(engine只print不落文件;data_base.json目前人肉装配是最大断点;make_multilingual.py下游全自动可复现)。
   - 已定架构:装配器三文件(engine吐computed.json数字类 + 人工content_zh.json文案 + observations独立文件),assemble.py合并→data_base.json。
-  - 待做:①先定稿docs/calc_spec.md(计算规范文档,含全样本体检结论+信号分工地图+L2新指标模板) ②造装配器(每步验五锚点) ③观测抓取器。
+  - 已完成(2026-07-02):①calc_spec.md定稿。②装配器第一环=export_computed.py(引擎零字节改动、只读调用;内建五锚点保险丝,任一不符拒绝导出;吐computed.json全数字原始精度,格式对齐留给assemble)+check_computed.py(验收50项对data_base全绿;唯一差异=剔除lights20陈旧点2026-06-23——旧评估日残留,人肉追加新点未删旧点,已裁决以装配器为准)。冻结常量(四顶锚点/4个replay顶日/11段episode起止/redmonths起点1997-07)硬编码在导出器并注明勿改;★今日锚点与PCTX_END耦合,评估日推进时须一同更新。
+  - 待做:②b建content_zh.json文案库+assemble.py(合并computed+content+observations→data_base.json,做格式对齐:emoji→词/"旗标 ON"空格/小数位;产物与现有data_base逐字节比对,lights20修正为唯一预期差异) ③观测抓取器。
   - 观测值(2yr/10yr/DXY/VVIX/SOX)数据源已定:FRED家族(DGS2/DGS10走CSV/API) + yfinance家族(DX-Y.NYB/^VVIX/^SOX);AAII手动周更(官网反爬,输入=Bull/Neutral/Bear三个原始数,脚本派生spread和bull比例两序列);observations存独立文件不进series.pkl。
