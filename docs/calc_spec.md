@@ -211,7 +211,7 @@ conf=(col∈🟠🔴) or cr;  wb=weeks_broken if conf else 0
 | 费半指数(绝对) | yfinance `^SOX` | API |
 
 - **investing.com 弃用**(反爬)。
-- **抓取失败 → 空哨兵降级**(TradingAgents 模式:填 `"—"`/空,前端显示灰色"待更新",不中断)。
+- **抓取失败回退(2026-07-02 裁决,取代原空哨兵方案)**:单项失败 → 沿用最近一次成功值并保留其数据日期(observations.json 的 dates 表);该项从未有值 → null(装配显示"—");五项全部失败 → 不改写文件。值域哨兵:越出合理域按失败处理。
 - **AAII 手动周更**(官网反爬):输入 Bull/Neutral/Bear 三原始数,脚本派生 `AAII`(bull 比例)与 `AAII_SPREAD`(净差)两序列(见 §2)。
 
 ---

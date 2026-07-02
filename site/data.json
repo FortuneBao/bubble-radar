@@ -328,7 +328,7 @@
         "en": "Short-end rates; 6.55% at the 2000 top vs 0.77% at the 2022 top — no monotonic relationship with tops",
         "ko": "단기 금리; 2000년 천장 6.55% vs 2022년 천장 0.77% — 천장과 단조 관계 없음"
       },
-      "value": 4.2,
+      "value": 4.14,
       "unit": "%"
     },
     {
@@ -342,7 +342,7 @@
         "en": "Long-end rates; macro backdrop",
         "ko": "장기 금리; 거시 배경"
       },
-      "value": 4.43,
+      "value": 4.44,
       "unit": "%"
     },
     {
@@ -356,7 +356,7 @@
         "en": "Dollar strength; a backdrop for capital flows",
         "ko": "달러 강약; 자금 흐름 배경"
       },
-      "value": 99.52,
+      "value": 101.23,
       "unit": ""
     },
     {
@@ -370,7 +370,7 @@
         "en": "The volatility of the VIX itself; data only from 2006",
         "ko": "VIX 자체의 변동성; 2006년부터 데이터"
       },
-      "value": 99.5,
+      "value": 89.04,
       "unit": ""
     },
     {
@@ -384,7 +384,7 @@
         "en": "The absolute level of semiconductors; its information is already captured by the deviation-from-average indicator",
         "ko": "반도체 절대 지수; 그 정보는 이미 이동평균 이격 지표에 반영됨"
       },
-      "value": 13203.6,
+      "value": 13353.28,
       "unit": ""
     }
   ],
