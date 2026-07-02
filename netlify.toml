@@ -1,0 +1,9 @@
+# bubble-radar · Netlify 站点配置(纯静态,发布 site/ 目录)
+# ignore:提交未改动 site/ 时跳过构建(省额度、发布列表不积压无关版本);
+#        首次构建 CACHED_COMMIT_REF==COMMIT_REF,前置 test 保证首建不被误跳。
+# 发布模式(2026-07-02 裁决 A):网页端开启 Lock to stop auto publishing(锁定发布),
+#        push 照常构建为待发布版本,老板点 Publish deploy 才上线 = 人工放行落在 Netlify 层。
+
+[build]
+  publish = "site"
+  ignore = 'test "$CACHED_COMMIT_REF" != "$COMMIT_REF" && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- site/'
