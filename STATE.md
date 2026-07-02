@@ -71,5 +71,13 @@ Netlify现状(2026-07-01): 当前为手动拖拽部署,站点 bubbleradar0622.ne
   - 已完成(2026-07-02):③观测抓取器=fetch_observations.py(FRED fredgraph CSV抓DGS2/DGS10+yfinance抓DX-Y.NYB/^VVIX/^SOX;值域哨兵防单位错;失败回退按裁决=单项失败沿用最近成功值并带其数据日期、从未有值才null、五项全失败不改写;observations.json新增dates逐项日期表,assemble零改动兼容;总设计师沙盒6场景13断言全过+本机实跑走通全链fetch→assemble --final→make_multilingual)。新依赖yfinance入requirements.txt。data_base的updated仍=PCTX_END红线不动,观测新鲜度看observations.json的dates。AAII裁决:缓做,与新指标批量检验+series.pkl追加放同一专门轮。
   - 已完成(2026-07-02):④Netlify v03上线=bubbleradarv03.netlify.app(publish=site;未改site/跳过构建含首建防误跳);发布模式A=锁定发布已开启,push只产生待发布版本,老板点Publish deploy才上线。老站bubbleradar0622暂留待退役。
   - 已完成(2026-07-02):⑤A每值时间戳=三口径决定论日期进数据链(观测=数据日透传dates表/指标墙=value_date即各底层序列≤评估日最后数据日/P·M·R·灯=评估日updated)+页头北京时间墙钟site/meta.json(仅--final写,唯一非决定论输出,豁免一切字节比对)。改动=assemble.py透传+保险丝两条、render.js三语标签渲染、site.css四类小灰字、index.html占位符措辞;engine/export/multilingual/fetch零改动。已裁决:C1粒度+A诚实口径+历史区不标。注:集中度两项显示"数据至2025-07-01"系PIT诚实口径(pkl内2026-07-01点晚于评估日不可用),评估日推进(⑥)后自动刷新。
-  - 待做:⑤B=daily-run.yml v1→v2(锚点哨兵保留+新增抓取回写作业:fetch→装配→三语→仅数据真变才commit+push,含yfinance盘中bar过滤与meta墙钟噪声抑制;周更SOP固化进STATE随⑤B收尾) ⑥核心11指标自动更新=series.pkl追加保锚点+评估日推进(PCTX_END与TODAY_ANCHOR同步)+AAII录入派生(最难,专门一轮)。
+  - 已完成(2026-07-02):⑤B云端日更上线=新工作流fetch-daily.yml(UTC09:30=北京17:30,周二~六覆盖美股周一~五收盘:抓取→git diff检测→仅数据真变才装配三语+commit+push;推送产生Netlify待发布版本,上线仍由老板点Publish)。fetch_observations.py两项加固:只取已收盘bar(数据日<纽约今天,防DXY等盘中临时值)+值与日期均未变不改写文件(updated=数据最后真实落地日,云端免空提交)。哨兵daily-run.yml仅删upload-artifact步骤(报告留job日志90天),其余零改动。总设计师沙盒:双YAML解析过+离线测试台10断言全过。
+  - 待做:⑥核心11指标自动更新=series.pkl追加保锚点+评估日推进(PCTX_END与TODAY_ANCHOR同步)+AAII录入派生(输入Bull/Neutral/Bear三原始数派生spread与bull比例两序列)——最难,专门一轮。
   - 观测值(2yr/10yr/DXY/VVIX/SOX)数据源已定:FRED家族(DGS2/DGS10走CSV/API) + yfinance家族(DX-Y.NYB/^VVIX/^SOX);AAII手动周更(官网反爬,输入=Bull/Neutral/Bear三个原始数,脚本派生spread和bull比例两序列);observations存独立文件不进series.pkl。
+
+## 12. 周更管线SOP(⑤B定稿 2026-07-02)
+- 全自动·云端日跑(fetch-daily.yml):抓观测→数据真变才 assemble --final→make_multilingual→commit+push→Netlify出待发布版本。
+- 人工·上线放行:Netlify Deploys 页看 Preview → 点 Publish deploy(锁定发布,唯一上线闸)。
+- 人工·核心数据(⑥落地前仍手工):series.pkl 更新 + 评估日推进(engine 的 PCTX_END 与 export_computed 的 TODAY_ANCHOR 两处同步改)→ 本地 export_computed(五锚点保险丝)→ assemble --final → make_multilingual → push。
+- 人工·文案:content_zh.json 按需改;论述句大改需同步 make_multilingual 的 en/ko 锚句。
+- 验证铁律不变:series.pkl=1197186 只加载永不重建;五锚点复现失败即回滚;data_base/site/data.json 决定论,site/meta.json 墙钟豁免比对。本地开工先 git pull(云端机器人可能已提交)。

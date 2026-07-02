@@ -12,14 +12,22 @@ fetch_observations.py — 装配器第三环:观测值自动抓取
   五项全部失败 → 不改写文件,退出码 1。
 值域哨兵:抓到的值越出合理域按失败处理(防单位/解析错)。
 
-observations.json 结构(新增 dates 表;assemble.py 只读 values,兼容零改动):
-  {"updated": 本次抓取日, "values": {key: 数值}, "dates": {key: 该值的数据日期}}
+⑤B 两项加固(2026-07-02):
+  只取已收盘 bar:yfinance 对交易中的当日会返回进行中的临时 bar(如 DXY 近 24 小时
+    交易)。以"纽约时区的今天"为界,只放行数据日严格早于它的 bar——必然已收盘定格。
+  无变化不改写:五键的 values 与 dates 与现有文件完全一致时,不落盘、不改 updated,
+    打印说明后正常退出(退出码 0)。云端日跑据此天然免空提交;updated 由此获得
+    "数据最后一次真实落地日"的诚实语义。
+
+observations.json 结构(assemble.py 读 values+dates):
+  {"updated": 最后一次数据落地日, "values": {key: 数值}, "dates": {key: 该值的数据日期}}
 
 运行: .venv/bin/python3 fetch_observations.py
 依赖: yfinance(requirements.txt)
 """
 import csv, io, json, os, sys, urllib.request
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 
 _BASE = os.path.dirname(os.path.abspath(__file__))
 OBS = os.path.join(_BASE, 'observations.json')
@@ -56,12 +64,15 @@ def fetch_fred(series):
     raise ValueError('序列全为缺失值')
 
 def fetch_yf(sym):
-    """yfinance:近10日收盘的最后一笔 → (值, 数据日期)"""
+    """yfinance:近10日收盘中,只取已收盘 bar 的最后一笔 → (值, 数据日期)
+    已收盘判据:bar 的数据日严格早于"纽约时区的今天"(⑤B,防盘中临时值)。"""
     import yfinance as yf
     h = yf.Ticker(sym).history(period='10d')
     c = h['Close'].dropna()
+    today_ny = datetime.now(ZoneInfo('America/New_York')).date()
+    c = c[[ts.date() < today_ny for ts in c.index]]
     if len(c) == 0:
-        raise ValueError('返回空数据')
+        raise ValueError('过滤纽约当日盘中 bar 后无已收盘数据')
     return float(c.iloc[-1]), str(c.index[-1].date())
 
 def main():
@@ -99,6 +110,10 @@ def main():
     if fresh == 0:
         print('✗ 五项全部失败 → 不改写 observations.json(保持原文件),退出码 1。')
         sys.exit(1)
+
+    if values == prev_vals and dates == prev_dates:
+        print(f'✓ 五键值与数据日均与现有一致 → 不改写文件(updated 保持 {prev_updated})。')
+        return
 
     out = {'updated': str(date.today()), 'values': values, 'dates': dates}
     with open(OBS, 'w', encoding='utf-8') as f:

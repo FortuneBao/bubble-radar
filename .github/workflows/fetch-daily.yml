@@ -1,0 +1,71 @@
+name: Daily Observations Fetch       # 观测值日更(⑤B):抓取→仅数据真变才装配提交
+
+on:                                   # —— 什么时候触发 ——
+  workflow_dispatch:                  # ① 手动:GitHub 网页点按钮就能跑(测试用)
+  schedule:
+    - cron: '30 9 * * 2-6'            # ② 定时:UTC 09:30 = 北京 17:30 = 纽约凌晨;
+                                      #    周二~周六(UTC)恰好覆盖美股周一~周五的收盘数据
+
+permissions:
+  contents: write                     # 本工作流要把新观测值提交回仓库
+
+concurrency:
+  group: fetch-daily                  # 防止手动+定时撞车并发
+  cancel-in-progress: false
+
+jobs:
+  fetch-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取出仓库代码
+        uses: actions/checkout@v5
+
+      - name: 装 Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: 装依赖(照 requirements.txt)
+        run: pip install -r requirements.txt
+
+      - name: 校验 series.pkl 完整性(铁律)
+        run: |
+          SIZE=$(wc -c < calc/series.pkl)
+          echo "series.pkl = $SIZE 字节"
+          if [ "$SIZE" -ne 1197186 ]; then
+            echo "❌ series.pkl 字节数不对,应为 1197186"; exit 1
+          fi
+          echo "✅ series.pkl 完整"
+
+      - name: 抓取观测值
+        run: python3 fetch_observations.py
+                                      # 抓取器自带:值域哨兵/失败回退/盘中bar过滤/无变化不改写
+
+      - name: 变化检测(无变化则收工)
+        id: changed
+        run: |
+          if git diff --quiet -- observations.json; then
+            echo "观测值与仓库版一致 → 无需装配提交,收工。"
+            echo "changed=no" >> "$GITHUB_OUTPUT"
+          else
+            echo "观测值有更新 → 走装配提交。"
+            echo "changed=yes" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 装配 + 三语(仅数据有变时)
+        if: steps.changed.outputs.changed == 'yes'
+        run: |
+          python3 assemble.py --final
+          python3 make_multilingual.py in=data_base.json out=site/data.json
+
+      - name: 提交并推送(仅数据有变时)
+        if: steps.changed.outputs.changed == 'yes'
+        run: |
+          git config user.name  "bubble-radar-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add observations.json data_base.json site/data.json site/meta.json
+          git commit -m "chore(daily): observations refresh $(date -u +%F)"
+          git pull --rebase origin main
+          git push
+                                      # push 到 main → Netlify 自动构建为"待发布版本"(发布已锁定),
+                                      # 上线仍由老板在 Netlify 点 Publish deploy 人工放行

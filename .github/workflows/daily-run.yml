@@ -56,10 +56,3 @@ jobs:
           if [ "$fail" -ne 0 ]; then echo "🚨 锚点漂移，管线判失败"; exit 1; fi
           echo "✅ 五锚点全部复现"
 
-      - name: 把报告存成"可下载附件"
-        if: always()                   # 即使上面验算失败，也上传报告好让你看到漂移的数
-        uses: actions/upload-artifact@v5
-        with:                          # 让你在 GitHub 网页能看到/下载这份报告
-          name: daily-report
-          path: reports/*.txt
-          retention-days: 30
